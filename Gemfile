@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem "dynamic_form"
+gem "paperclip"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -28,7 +29,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+
 
 group :test do
   # Pretty printed test output
@@ -36,6 +37,7 @@ group :test do
 end
 
 group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec-rails', '2.6.1'
   #gem 'annotate', '2.4.0'
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
