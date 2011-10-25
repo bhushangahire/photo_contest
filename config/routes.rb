@@ -2,6 +2,7 @@ PhotoContest::Application.routes.draw do
   get "contestants/new"
 
     resources :contestants
+    resources :contestant_entries
     #match 'contestants/new' => 'contestants#new'
 
   # The priority is based upon order of creation:

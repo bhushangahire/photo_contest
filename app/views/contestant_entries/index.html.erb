@@ -1,0 +1,30 @@
+<h1>Contest Gallery</h1>
+<table border ="1">
+  <% @contestants.each do |contestant| %>
+    <tr>
+      <td> <%= contestant.email %>     
+      </td>
+      <td>
+      <% contestant.contestant_entries.each do | entry | %>
+        <%= image_tag entry.photo.url(:medium) %>
+          <% if entry.rating.nil? %>
+            <%= form_for entry  do |f| %>
+              <div class="error_messages"
+                <%= f.error_messages %>
+              </div>
+              <div class="field">
+                <%= f.label :rating %>
+                <%= f.text_field :rating,  :size => "2" %>
+              <div class="actions">
+                <%= f.submit "Submit Vote" %>
+              </div>              
+             </div>
+             <% end %><!-- rating form --> 
+          <% else %>
+            <p> Rating <% entry.rating %></p>
+          <% end %><!--was item rated-->        
+      </td>
+    <% end %><!-- end contestant entry loop-->        
+    </tr>
+  <% end %><!-- end unique contestant loop-->
+</table>

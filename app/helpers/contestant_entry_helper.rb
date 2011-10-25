@@ -1,0 +1,2 @@
+module ContestantEntryHelper
+end
