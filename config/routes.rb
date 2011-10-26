@@ -4,8 +4,8 @@ PhotoContest::Application.routes.draw do
     resources :contestants
     resources :contestant_entries
     
-    match '/enter',   :to =>   'contestants#new'
-    match '/about',   :to =>   'pages#about'
+    match '/enter',   :to =>   'contestants#new'    
+    match '/rules',   :to =>   'pages#rules'
 
     root :to => 'pages#home' 
 
