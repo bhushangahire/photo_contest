@@ -1,5 +1,6 @@
 <div id="sign_up_form">
-<h1>Sign up</h1>
+<h2>Picture your self as a Winner</h2>
+<h1>Enter here to Win</h1>
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   <%= f.error_messages %>
   <div class="field">
@@ -39,7 +40,7 @@
   </div>
 
 
- <%= fields_for @contestant.current_entry do |current_entry_form|  %> 
+ <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
   <div class="field"> 
     <%= current_entry_form.label :photographer %><br />    
     <%= current_entry_form.text_field :photographer %>

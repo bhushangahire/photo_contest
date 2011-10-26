@@ -38,16 +38,16 @@ end
 
 group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'rspec-rails', '2.6.1'
-  #gem 'annotate', '2.4.0'
+  #gem 'rspec-rails', '2.6.1'
+  gem 'rspec-rails'  
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-#  gem 'faker', '0.3.1'
+  gem 'faker', '0.3.1'
 end
 
 group :test do
-  gem 'rspec-rails', '2.6.1'
+  #gem 'rspec-rails', '2.6.1'
+  gem 'rspec-rails'
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0.rc5'
-#  gem 'factory_girl_rails', '1.0'
+  gem 'factory_girl_rails', '1.0'
 end
-
