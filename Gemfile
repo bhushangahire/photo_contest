@@ -5,6 +5,7 @@ gem "dynamic_form"
 gem "paperclip"
 gem 'heroku'
 gem 'pg'
+gem 'mysql2'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
