@@ -17,8 +17,6 @@ class ContestantEntry < ActiveRecord::Base
   def limit_to_three_entries    
   begin  
     #get prior entries from corresponding contesant
-    debugger
-    logger "In limit"
     prior_entries = self.contestant.contestant_entries    
     #no entries, no problem      
     if prior_entries.empty?    
