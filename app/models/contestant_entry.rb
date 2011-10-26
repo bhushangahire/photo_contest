@@ -3,10 +3,11 @@ class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
   
   #validate_on_create :no_more_three_entries
-  validate :limit_to_three_entries 
+  validate :limit_to_three_entries , :on => :create
+  validate :limit_to_three_entries , :on => :update 
   
-  validates_attachment_presence :photo                    
-  validates_attachment_size   :photo, :less_than=>20.megabyte, :greater_than=>1.megabyte
+  validates_attachment_presence :photo, :message => "You must attache a photo."                    
+  validates_attachment_size   :photo, :less_than=>20.megabyte, :greater_than=>1.megabyte  , :message => "Photo size must be between 1 and 20 Megabytes"
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
 
   #make sure there are only three contesant entries for the corresponding contesant
@@ -15,7 +16,9 @@ class ContestantEntry < ActiveRecord::Base
     
   def limit_to_three_entries    
   begin  
-    #get prior entries from corresponding contesant     
+    #get prior entries from corresponding contesant
+    debugger
+    logger "In limit"
     prior_entries = self.contestant.contestant_entries    
     #no entries, no problem      
     if prior_entries.empty?    
