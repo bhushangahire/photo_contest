@@ -4,5 +4,5 @@ log/*.log
 tmp/
 app/assests/images/*.*
 spec/fixtures/images/*.*
-
+public/system/photos
 

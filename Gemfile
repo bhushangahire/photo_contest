@@ -6,6 +6,7 @@ gem "paperclip"
 gem 'heroku'
 gem 'pg'
 gem 'mysql2'
+gem 'will_paginate'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

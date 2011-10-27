@@ -20,7 +20,7 @@ class ContestantsController < ApplicationController
   
   def create_or_update
    @contestant = get_customer_by_email_param       
-   @contestant_entry = build_contestant_entry   
+   @contestant_entry = build_contestant_entry      
    if @contestant.save
       flash[:success] = "Thank you for submission!"
       redirect_to @contestant
@@ -40,9 +40,11 @@ class ContestantsController < ApplicationController
     return contestant
   end
 
+
   def build_contestant_entry
     entry = @contestant.contestant_entries.build(params[:contestant_entry])
-    return entry
+    #entry.photo =  params[:contestant_entry][:photo]
+    return entry  
   end
 
 end

@@ -1,0 +1,17 @@
+--delete from  contestants
+--delete from  contestant_entries
+
+select * from contestants  where id = (select max(id) from contestants)
+
+select * 
+from  contestant_entries
+where contestant_id = 1
+
+select count(*) ,  contestant_id
+from  contestant_entries
+group by contestant_id
+having count(*) > 1
+
+select  * from contestant_entries where rating is not null
+
+Delete from contestant_entries

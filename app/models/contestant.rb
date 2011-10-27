@@ -9,20 +9,4 @@ class Contestant < ActiveRecord::Base
                       :format   => { :with => email_regex }, 
                       :uniqueness => { :case_sensitive => false }
 
- #scheduled for removal
- # validates :first_name, :presence => true
- # validates :last_name, :presence => true      
- # validates :address, :presence => true 
- # validates  :city, :presence => true
- # validates  :state, :presence => true
- # validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
- # validates :phone, :presence => true
-
-#  validates :photographer, :presence => true
-#  validates :location, :presence => true
-#  validates :contest_source, :presence => true
-
-  
-
 end
-

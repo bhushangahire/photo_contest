@@ -6,7 +6,7 @@ PhotoContest::Application.routes.draw do
     
     match '/enter',   :to =>   'contestants#new'    
     match '/rules',   :to =>   'pages#rules'
-
+    match '/admin/gallery',   :to =>   'contestant_entries#index'
     root :to => 'pages#home' 
 
   #match 'contestants/new' => 'contestants#new'
