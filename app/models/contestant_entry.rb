@@ -2,21 +2,20 @@ class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  attr_accessor :aggreed_to_rules
-                       
   
-  attr_accessible :photo, :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source
+  attr_accessible :photo, :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source, :agreed_to_rules  
   
+
   #problematic
   validate :limit_to_three_entries , :on => :create
   
-   validates_attachment_presence :photo, :message => "You must attach a photo."                    
+  validates_attachment_presence :photo, :message => "You must attach a photo."                    
 #  #problematic
 #  validates_attachment_size  :photo,:less_than=>20.megabyte,:greater_than=>1.megabyte,:message => "Photo size must be between 1 and 20 Megabytes",:allow_nil => true
-   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
-   validate :size_acceptable, :on => :create
-   
-  validates :aggreed_to_rules, :presence     => true
+  validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
+  validate :size_acceptable, :on => :create
+
+  validates :agreed_to_rules, :presence     => true  
   validates :first_name, :presence => true
   validates :last_name, :presence => true      
   validates :address, :presence => true 
@@ -27,6 +26,7 @@ class ContestantEntry < ActiveRecord::Base
   validates :photographer, :presence => true
   validates :location, :presence => true
   validates :contest_source, :presence => true
+  #validates  :rating, :numericality => true,  on => :update
  
  
  # validates :first_name, :presence => true
@@ -56,7 +56,7 @@ class ContestantEntry < ActiveRecord::Base
       if prior_entries.size < 3      
         return 
       else  
-       errors.add(:base, "Too many contest entries") 
+       errors.add(:base, "Thanks, but you are only allowed 3 entries.") 
       end
     end    
   end

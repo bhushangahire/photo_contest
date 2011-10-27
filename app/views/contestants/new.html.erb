@@ -75,14 +75,11 @@
               ) 
     %>
   </div>
- <% end %>
   <div class="field">
-  
-
-  <div class="field">
-    <%= f.label :agreed_to_rules %><!--<br />-->
-    <%= f.check_box :agreed_to_rules %>
+    <%= current_entry_form.label :agreed_to_rules %><!--<br />-->
+    <%= current_entry_form.check_box :agreed_to_rules %>
   </div> 
+ <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
