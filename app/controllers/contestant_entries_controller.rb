@@ -1,16 +1,24 @@
 class ContestantEntriesController < ApplicationController
       
   def index
-    @contestants = Contestant.find(:all)
+    #@contestants = Contestant.find(:all)
+    @contestants = Contestant.paginate(:page => params[:page], :per_page => 2)
   end
 
   def update
-   entry = ContestantEntry.find(params[:id])  
+   #@contestants = Contestant.find(:all)
+   @contestants = Contestant.paginate(:page => params[:page], :per_page => 2)
+   
+   entry = ContestantEntry.find(params[:id])   
    entry.rating = params[:contestant_entry][:rating]
-   if entry.save
-      flash[:now] = params
-      redirect_to entry.contestant
+   
+   if entry.save      
+      render 'index'
    else     
+     entry.errors.each do |err|
+      flash[:now] = err.to_s       
+     end
+     flash[:now] += "  Photo size " + entry.photo.size
     render 'index'
    end   
   end 

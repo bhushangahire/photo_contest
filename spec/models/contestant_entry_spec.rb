@@ -6,7 +6,7 @@ describe ContestantEntry do
    before(:each) do
     @contestant= Factory(:contestant)
     @entry_attr = { 
-       :photographer => "Fred Hickler",
+       :photographer => "Sam Dunken",
        :location     => "Cyclopean Elipsoid",
        :contest_source => "contest_source",
        :photographer   => "photographer",
@@ -28,9 +28,15 @@ describe ContestantEntry do
     end
 
     it "Contestant should not be able to create four entries" do   
+      contestant_entry = @contestant.contestant_entries.create!(@entry_attr)      
+      debugger
+      contestant_entry.should be_valid
       contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
+      debugger
+      contestant_entry.should be_valid      
       contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
-      contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
+      debugger
+      contestant_entry.should be_valid
       contestant_entry = @contestant.contestant_entries.build(@entry_attr)
       contestant_entry.should_not be_valid
       @contestant.should_not be_valid
@@ -43,7 +49,7 @@ describe ContestantEntry do
     end
 
     it "should only accept image type attachments" do
-      attr_blank_photo = @entry_attr.merge(:photo =>nil)
+     attr_blank_photo = @entry_attr.merge(:photo =>nil)
      no_photo_contest_entry  =  @contestant.contestant_entries.build( attr_blank_photo)
      no_photo_contest_entry.should_not be_valid
     end 
@@ -62,10 +68,8 @@ describe ContestantEntry do
        attr_big_photo = @entry_attr.merge(:photo =>big_photo)
        contestant_entry = @contestant.contestant_entries.build(attr_big_photo)    
        contestant_entry.should_not be_valid
-      end
-    
+      end    
     end 
-
  end
 
 # == Schema Information

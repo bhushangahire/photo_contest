@@ -4,17 +4,7 @@ describe Contestant do
  
   before(:each) do
     @attr = { 
-       :first_name => "John",
-       :last_name  => "Doe",
-       :address    => "1325 S Wabash",
-       :city       => "Chicago",
-       :state      => "IL",
-       :zip        => "60605",
-       :phone      => "312-123-1231",
-       :email        => "sam@gresmo.com",
-       :photographer => "Fred Hickler",
-       :location     => "Cyclopean Elipsoid",
-       :contest_source => "email"
+       :email        => "sam@gresmo.com"
     }
   end
 
