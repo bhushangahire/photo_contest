@@ -3,24 +3,14 @@ class ContestantsController < ApplicationController
   def new
     @contestant = Contestant.new      
   end
-
+  
   def show
     @contestant = Contestant.find(params[:id])
   end
 
-  def create
-   create_or_update
-  end
-  
-  def update
-    create_or_update
-  end
-  
-  private
-  
-  def create_or_update
-   @contestant = get_customer_by_email_param       
-   @contestant_entry = build_contestant_entry      
+  def create  
+   @contestant = get_customer_by_email_param   
+   @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
       flash[:success] = "Thank you for submission!"
       redirect_to @contestant
@@ -28,6 +18,20 @@ class ContestantsController < ApplicationController
     render 'new'
    end
   end
+  
+  def update
+   @contestant = get_customer_by_email_param
+   entry = @contestant.contestant_entries.build(params[:contestant_entry])
+   if @contestant.save
+      flash[:success] = "Thank you for submission!"
+      redirect_to @contestant
+   else     
+    render 'new'
+   end
+  end
+  
+  private
+  
   
      
   #is this contestant is a returning customer
@@ -42,7 +46,8 @@ class ContestantsController < ApplicationController
 
 
   def build_contestant_entry
-    entry = @contestant.contestant_entries.build(params[:contestant_entry])
+    
+    debugger
     #entry.photo =  params[:contestant_entry][:photo]
     return entry  
   end

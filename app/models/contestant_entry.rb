@@ -2,11 +2,10 @@ class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
     
-  attr_accessible :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source
+  attr_accessible :photo, :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source
   
   #problematic
   validate :limit_to_three_entries , :on => :create
-  #validate :limit_to_three_entries , :on => :update 
   
    validates_attachment_presence :photo, :message => "You must attach a photo."                    
 #  #problematic
@@ -14,6 +13,18 @@ class ContestantEntry < ActiveRecord::Base
    validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
    validate :size_acceptable, :on => :create
    
+ # validates :first_name, :presence => true
+ # validates :last_name, :presence => true      
+ # validates :address, :presence => true 
+ # validates  :city, :presence => true
+ # validates  :state, :presence => true
+ # validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
+ # validates :phone, :presence => true
+ # validates :photographer, :presence => true
+ # validates :location, :presence => true
+ # validates :contest_source, :presence => true
+ 
+ 
  # validates :first_name, :presence => true
  # validates :last_name, :presence => true      
  # validates :address, :presence => true 
@@ -48,19 +59,16 @@ class ContestantEntry < ActiveRecord::Base
 
   private
   
-  def size_acceptable
-    
+  def size_acceptable    
       if photo.nil? || photo.size.nil?
         return
       end
-      debugger
       size = photo.size
       if  size >20.megabyte
         errors.add(:photo, "Size must be smaller than 20")
       elsif   size < 1.megabyte
          errors.add(:photo, "Size must be greater than 1")
-      end
-    
+      end    
   end
   
 end

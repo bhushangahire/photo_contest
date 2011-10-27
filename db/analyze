@@ -7,6 +7,8 @@ select *
 from  contestant_entries
 where contestant_id = 1
 
+delete from contestant_entries where photo_file_name is null
+
 select count(*) ,  contestant_id
 from  contestant_entries
 group by contestant_id
@@ -15,3 +17,22 @@ having count(*) > 1
 select  * from contestant_entries where rating is not null
 
 Delete from contestant_entries
+
+
+Update contestant_entries 
+set
+first_name = 'sam',
+last_name  = 'bloch',
+city = 'portoprens',
+state = 'centrale',
+zip = '11231',
+phone='555-123-4444',
+photographer ='Melta Banane',
+location = 'chicago'
+contest_source ='email'
+where contestant_id = 11
+
+
+
+
+

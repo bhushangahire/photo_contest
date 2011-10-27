@@ -13,12 +13,8 @@ class ContestantEntriesController < ApplicationController
    entry.rating = params[:contestant_entry][:rating]
    
    if entry.save      
-      render 'index'
-   else     
-     entry.errors.each do |err|
-      flash[:now] = err.to_s       
-     end
-     flash[:now] += "  Photo size " + entry.photo.size
+    render 'index'
+   else          
     render 'index'
    end   
   end 
