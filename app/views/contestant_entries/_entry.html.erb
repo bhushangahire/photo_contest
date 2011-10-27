@@ -1,0 +1,23 @@
+<%= image_tag entry.photo.url(:medium) %>
+<% if entry.rating.nil? %>  
+  <%= form_for entry  do |f| %>
+    <div class="error_messages">
+      <%= f.error_messages %>
+    </div>
+    <div class="field">
+      <%= f.label :rating %>
+      <%= f.text_field :rating,  :size => "2" %>
+    <div class="actions">
+      <%= f.submit "Submit Vote" %>
+    </div>  
+   <% end %><!-- rating form -->
+<% else %>
+  <p> Rating: <%=  entry.rating %></p>
+<% end %><!--was item rated-->
+<strong>Entry Info</strong> <br>
+<%= entry.first_name %> <%= entry.last_name %> : <%= entry.phone %><br >
+<%= entry.address %>&nbsp;<%= entry.city%>,<%= entry.state %>&nbsp;<%= entry.zip%><br >
+Photographer: <%= entry.photographer %><br >
+Location:  <%= entry.location %><br >
+Source:  <%=  entry.contest_source%>
+

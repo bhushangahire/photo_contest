@@ -1,7 +1,10 @@
 class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-    
+
+  attr_accessor :aggreed_to_rules
+                       
+  
   attr_accessible :photo, :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source
   
   #problematic
@@ -13,16 +16,17 @@ class ContestantEntry < ActiveRecord::Base
    validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
    validate :size_acceptable, :on => :create
    
- # validates :first_name, :presence => true
- # validates :last_name, :presence => true      
- # validates :address, :presence => true 
- # validates  :city, :presence => true
- # validates  :state, :presence => true
- # validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
- # validates :phone, :presence => true
- # validates :photographer, :presence => true
- # validates :location, :presence => true
- # validates :contest_source, :presence => true
+  validates :aggreed_to_rules, :presence     => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true      
+  validates :address, :presence => true 
+  validates  :city, :presence => true
+  validates  :state, :presence => true
+  validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
+  validates :phone, :presence => true
+  validates :photographer, :presence => true
+  validates :location, :presence => true
+  validates :contest_source, :presence => true
  
  
  # validates :first_name, :presence => true
