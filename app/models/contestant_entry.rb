@@ -26,7 +26,7 @@ class ContestantEntry < ActiveRecord::Base
   validates :photographer, :presence => true
   validates :location, :presence => true
   validates :contest_source, :presence => true
-  #validates  :rating, :numericality => true,  on => :update
+  validates  :rating, :numericality => true
  
  
  # validates :first_name, :presence => true

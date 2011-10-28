@@ -6,7 +6,7 @@
     </div>
     <div class="field">
       <%= f.label :rating %>
-      <%= f.text_field :rating,  :size => "2" %>
+      <%= select( :entry, :rating, list_of_numbers(100) ) %>
     <div class="actions">
       <%= f.submit "Submit Vote" %>
     </div>  
