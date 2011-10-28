@@ -1,8 +1,7 @@
 <div id="sign_up_form">
-<h2>Picture your self as a Winner</h2>
-<h1>Enter here to Win</h1>
+<h2>Picture Yourself as a Winner</h2>
+<h1>Enter Here to Win!</h1>
 
-<h3 class="step"> Step 1 </h3>
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   
     <% if @contestant.errors.any? %>
@@ -10,18 +9,21 @@
       <h2>Errors prohibited this post from being saved</h2>
       
       <ul>
-      <% @contestant.errors.full_messages.each do |msg| %>
-        
-        <li><%= msg %></li>
+      <% @contestant.errors.full_messages.each do |msg| %>                        
         <% if msg.include?  "Contestant entries is invalid" %>
           <% @contestant.contestant_entries.last.errors.full_messages.each  do | entry_msg | %>
             <li><%= entry_msg  %></li>    
           <% end %>
+        <% else %>
+            <li><%= msg %></li>
         <% end %>
+        
       <% end %>
       </ul>
     </div>
   <% end %>
+  
+  
   <!-- email for contestant -->
   <div class="field">
     <%= f.label :email %>
@@ -70,20 +72,26 @@
     <%= current_entry_form.file_field :photo %>    
   </div> 
   <div class="field">
-    <%= current_entry_form.label :contest_source %>
+    <%= current_entry_form.label :contest_source, ('How did you hear about this contest?') %>
     <%= select(:contestant_entry, :contest_source, 
                 [['Email', 'Email'], ['Friend', 'Friend']]
                 
               ) 
     %>
   </div>
-  <div class="field">
-    <%= current_entry_form.label :agreed_to_rules %>
+  
+  <div class="field" id="rules">
+    <%= current_entry_form.label :agreed_to_rules,  ("I have read the offical rules of USAgencies Picture This! Calendar Contest and agree to the contests's
+terms and conditions.")  %>
     <%= current_entry_form.check_box :agreed_to_rules %>
-  </div> 
+  </div>
+  
  <% end %>
+<!--<h3 class="step"> 3. Click Submit and you're all set! </h3> -->
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
+
+
 

@@ -26,7 +26,7 @@ class ContestantEntry < ActiveRecord::Base
   validates :photographer, :presence => true
   validates :location, :presence => true
   validates :contest_source, :presence => true
-  validates  :rating, :numericality => true
+  
  
  
  # validates :first_name, :presence => true
@@ -56,7 +56,7 @@ class ContestantEntry < ActiveRecord::Base
       if prior_entries.size < 3      
         return 
       else  
-       errors.add(:base, "Thanks, but you are only allowed 3 entries.") 
+       errors.add(:base, "You are only allowed 3 entries.") 
       end
     end    
   end
@@ -69,9 +69,9 @@ class ContestantEntry < ActiveRecord::Base
       end
       size = photo.size
       if  size >20.megabyte
-        errors.add(:photo, "Size must be smaller than 20")
+        errors.add(:photo, "Size must be smaller than 20 megabytes.")
       elsif   size < 1.megabyte
-         errors.add(:photo, "Size must be greater than 1")
+         errors.add(:photo, "Size must be greater than 1 megabyte.")
       end    
   end
   

@@ -1,7 +1,8 @@
 class ContestantsController < ApplicationController
 
   def new
-    @contestant = Contestant.new      
+    @contestant = Contestant.new
+    @entry = ContestantEntry.new 
   end
   
   def show
@@ -23,9 +24,9 @@ class ContestantsController < ApplicationController
    @contestant = get_customer_by_email_param
    entry = @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
-      flash[:success] = "Thank you for submission!"
+      flash[:success] = "Thanks for submission!"
       redirect_to @contestant
-   else     
+   else
     render 'new'
    end
   end
