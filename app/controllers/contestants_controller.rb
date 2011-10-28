@@ -47,7 +47,7 @@ class ContestantsController < ApplicationController
 
   def build_contestant_entry
     
-    debugger
+    
     #entry.photo =  params[:contestant_entry][:photo]
     return entry  
   end
