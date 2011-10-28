@@ -2,12 +2,13 @@
 <h2>Picture your self as a Winner</h2>
 <h1>Enter here to Win</h1>
 
+<h3 class="step"> Step 1 </h3>
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   
     <% if @contestant.errors.any? %>
     <div id="error_explanation">
       <h2>Errors prohibited this post from being saved</h2>
-      <!--<br />-->
+      
       <ul>
       <% @contestant.errors.full_messages.each do |msg| %>
         
@@ -23,64 +24,64 @@
   <% end %>
   <!-- email for contestant -->
   <div class="field">
-    <%= f.label :email %><!--<br />-->
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <!-- other fields for constetant entry -->
   <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
   <div class="field">
-    <%= current_entry_form.label :first_name %><!--<br />-->
+    <%= current_entry_form.label :first_name %>
     <%= current_entry_form.text_field :first_name %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :last_name %><!--<br />-->
+    <%= current_entry_form.label :last_name %>
     <%= current_entry_form.text_field :last_name %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :address %><!--<br />-->
+    <%= current_entry_form.label :address %>
     <%= current_entry_form.text_field :address %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :city %><!--<br />-->
+    <%= current_entry_form.label :city %>
     <%= current_entry_form.text_field :city %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :state %><!--<br />-->
+    <%= current_entry_form.label :state %>
     <%= current_entry_form.text_field :state %>
   </div>  
   <div class="field">
-    <%= current_entry_form.label :zip %><!--<br />-->
+    <%= current_entry_form.label :zip %>
     <%= current_entry_form.text_field :zip %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :phone %><!--<br />-->
+    <%= current_entry_form.label :phone %>
     <%= current_entry_form.text_field :phone %>
   </div>
   <div class="field"> 
-    <%= current_entry_form.label :photographer %><!--<br />-->    
+    <%= current_entry_form.label :photographer %>    
     <%= current_entry_form.text_field :photographer %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :location %><!--<br />-->    
+    <%= current_entry_form.label :location %>    
     <%= current_entry_form.text_field :location %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :photo %><!--<br />-->
+    <%= current_entry_form.label :photo %>
     <%= current_entry_form.file_field :photo %>    
   </div> 
   <div class="field">
-    <%= current_entry_form.label :contest_source %><!--<br />-->
+    <%= current_entry_form.label :contest_source %>
     <%= select(:contestant_entry, :contest_source, 
                 [['Email', 'Email'], ['Friend', 'Friend']]
+                
               ) 
     %>
   </div>
   <div class="field">
-    <%= current_entry_form.label :agreed_to_rules %><!--<br />-->
+    <%= current_entry_form.label :agreed_to_rules %>
     <%= current_entry_form.check_box :agreed_to_rules %>
   </div> 
  <% end %>
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

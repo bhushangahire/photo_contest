@@ -21,15 +21,22 @@
 
       </header>
 
-      <section class="round">
+      <section>
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, :class => "flash #{key}") %>
         <% end %>
         <%= yield %>
       </section>
       
+            <footer>
+          <p>
+          Sed at sollicitudin enim. Mauris vestibulum velit ut enim porttitor et dapibus neque semper. Aliquam non fermentum dui. Proin ac elit tellus. Mauris est nibh, posuere at placerat eu, adipiscing eget libero. Praesent cursus tellus et risus bibendum sit amet vulputate felis accumsan. Nam nec varius nisi. Morbi vitae varius metus. In pulvinar iaculis rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc accumsan tincidunt rutrum.
+          </p>        
+      </footer>
+            
       <%= debug(params) if Rails.env.development? %>
       </div>
+
    </body>
 </html>
 
