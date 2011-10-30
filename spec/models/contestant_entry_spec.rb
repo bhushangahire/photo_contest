@@ -1,20 +1,28 @@
 require 'spec_helper'
 
 describe ContestantEntry do
-
-   #to make Contestant,  should be a Factory deal
+   
    before(:each) do
-    @contestant= Factory(:contestant)
-    @entry_attr = { 
-       :photographer => "Sam Dunken",
-       :location     => "Cyclopean Elipsoid",
-       :contest_source => "contest_source",
-       :photographer   => "photographer",
-       :location       => "location",
-       :contest_source => "email",
-       :photo =>  File.new(Rails.root + 'spec/fixtures/images/right_size.jpg')
-    }
-  end
+       @contestant= Factory(:contestant)
+       @entry_attr = {
+         :first_name   => "first_name",
+         :last_name    => "last_name",
+         :address => "address",
+         :city => "city",
+         :state => "IL",
+         :zip => "66666",
+         :phone => "312-123-5551",
+         :photographer => "Sam Dunken",
+         :location     => "Cyclopean Elipsoid",
+         :contest_source => "contest_source",
+         :photographer   => "photographer",
+         :location       => "location",
+         :contest_source => "email",
+         :agreed_to_rules => "true",
+         :photo =>  File.new(Rails.root + 'spec/fixtures/images/right_size.jpg')
+      }
+   end   
+
    
     it "should create an entry" do    
        contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
@@ -69,20 +77,26 @@ describe ContestantEntry do
        contestant_entry = @contestant.contestant_entries.build(attr_big_photo)    
        contestant_entry.should_not be_valid
       end    
-    end 
- end
+   
+    
+   it "should have some detailed atttribute tests" do
+      pending("get detailed attribute tests")
+   end
+   
+   describe "should validate zip" do      
+      it "should be a number" do
+         pending("validate zip is a number")
+      end      
+      it "should be only 5 digits" do
+         pending("validate zip is only five digits")
+      end
+   end
+   
+   it "should validate phone" do
+      pending("validate phone")
+   end
+   
+end
+end
 
-# == Schema Information
-#
-# Table name: contestant_entries
-#
-#  id                 :integer         not null, primary key
-#  contestant_id      :integer
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :string(255)
-#  photo_update_at    :datetime
-#  created_at         :datetime
-#  updated_at         :datetime
-#
 

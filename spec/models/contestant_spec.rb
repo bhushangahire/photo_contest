@@ -17,10 +17,28 @@ describe Contestant do
       blank_contesant = Contestant.new
       blank_contesant.should_not be_valid
     end
+  
     
-    it "should have some detailed atttribute tests" do
-      pending("get detailed attribute tests")
+    it "should strip whitespace in email " do
+      pending ("test stripping whitespace")
     end
+    
+    it "should be able to find a user by email" do
+      pending ("test user email - MOVE TO CONTROLLER")
+    end
+    
+    it "should find a user instead of creating one" do
+      pending ("test user email - ??? - MOVE TO CONTROLLER")
+    end
+    
+    describe "valid email" do       
+      it "should accept decent email" do
+        pending
+      end
+      it "should reject  bad email" do  
+        pending
+      end    
+   end    
     
 end
 

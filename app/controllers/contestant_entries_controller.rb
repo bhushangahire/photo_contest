@@ -16,6 +16,10 @@ class ContestantEntriesController < ApplicationController
     flash[:now] = "Your rating for #{entry.contestant.email} was not saved.  Please put a numeric rating"
     redirect_to contestant_entries_path
    end   
-  end 
+  end
+  
+  def show
+    @contestant_entry =  ContestantEntry.find(params[:id])
+  end
 
 end
