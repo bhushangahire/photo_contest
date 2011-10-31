@@ -31,4 +31,7 @@ PhotoContest::Application.configure do
   #Devise authentication requires
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
  
+  # Something is available in videos
+  
+  config.serve_static_assets = true
 end

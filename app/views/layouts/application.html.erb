@@ -7,36 +7,79 @@
       <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container">
-
-      <header>
-        
-       <nav>
-          <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Enter", enter_path %></li>
-            <li><%= link_to "Rules", rules_path %></li>
-          </ul>
-        </nav>
-
-      </header>
-
-      <section>
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, :class => "flash #{key}") %>
-        <% end %>
-        <%= yield %>
-      </section>
+    <div id="wrap">
+      <div id="header">                 
+          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400">
+            <param name="movie" value="/videos/affirmative_flash.swf" />
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="swfversion" value="8.0.35.0" />
+            <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+            <param name="expressinstall" value="Scripts/expressInstall.swf" />
+            <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="/videos/affirmative_flash.swf" width="1024" height="400">
+              <!--<![endif]-->
+              <param name="quality" value="high" />
+              <param name="wmode" value="opaque" />
+              <param name="swfversion" value="8.0.35.0" />
+              <param name="expressinstall" value="Scripts/expressInstall.swf" />
+              <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+              <div>
+                <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+                <p><a href="http://www.adobe.com/go/getflashplayer">
+                  <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+                       alt="Get Adobe Flash player" width="112" height="33" /></a>
+                </p>
+              </div>
+              <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+          </object>
+        </div>
       
-      <footer>
-        <p>
-        Sed at sollicitudin enim. Mauris vestibulum velit ut enim porttitor et dapibus neque semper. Aliquam non fermentum dui. Proin ac elit tellus. Mauris est nibh, posuere at placerat eu, adipiscing eget libero. Praesent cursus tellus et risus bibendum sit amet vulputate felis accumsan. Nam nec varius nisi. Morbi vitae varius metus. In pulvinar iaculis rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc accumsan tincidunt rutrum.
-        </p>        
-      </footer>
-            
-      <%= debug(params) if Rails.env.development? %>
-      </div>
-
+       <div id="nav">
+          <ul>            
+            <li><span class="navspace"><%= link_to "Home", root_path %></span></li>|
+            <li><span class="navspace"><%= link_to "Enter", enter_path %></span></li>|
+            <li><span class="navspace"><%= link_to "Rules", rules_path %></span></li>
+          </ul>          
+        </nav>
+       </div><!-- header-->
+       <div id="main">         
+        <section>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, :class => "flash #{key}") %>
+          <% end %>
+          <%= yield %>
+        </section>        
+       </div><!-- main --->
+       <div id="sidebar">
+          <%= image_tag("calendars.png", :alt=>"Calendars", :width=>"345", :height => "687") %>           
+          <br />
+          <%= image_tag("mycommlogo.png",
+                        :alt=>"My Community",
+                        :width=>"303",
+                        :height => "175", 
+                        :class => "mycommpadding") %>           
+        </div><!-- sidebar -->
+       <div id="footer">
+        <div id="happylogo">
+          <img
+               src="<%= image_path("drivingcustlogo.png")%>"               
+               alt="Driving Customers Happy. It's our best policy."
+               width="288" height="140" /></div>
+        <div id="usagencieslink">
+          <a href="http://www.usagencies.com" target="_blank">
+            <img src="<%= image_path("usalogo.png")%>" width="324" height="68" border="0" class="bottomlogo" />
+          </a>          
+          <br />
+          For a FREE QUOTE on low-cost auto insurance <a href="http://www.usagencies.com" target="_blank">visit USAgencies today.</a></div>
+          <span class="clear">&nbsp;</span>
+        </div><!-- footer -->        
+    </div><!-- wrap -->  
+    <%= debug(params) if Rails.env.development? %>
+    
    </body>
 </html>
 
