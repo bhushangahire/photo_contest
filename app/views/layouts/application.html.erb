@@ -5,12 +5,14 @@
       <%= stylesheet_link_tag    "application" %>
       <link href='http://fonts.googleapis.com/css?family=Poly' rel='stylesheet' type='text/css'>
       <%= javascript_include_tag "application" %>
+      <style type="text/css" media="screen">#FlashID {visibility:inherit}</style>
       <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="wrap">
-      <div id="header">                 
-          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400">
+    <div id="wrap"  >
+      <div id="header" >                 
+          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400"
+          >
             <param name="movie" value="/videos/affirmative_flash.swf" />
             <param name="quality" value="high" />
             <param name="wmode" value="opaque" />

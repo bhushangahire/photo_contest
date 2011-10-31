@@ -3,9 +3,10 @@
 
 select * from contestants  where id = (select max(id) from contestants)
 
+
 select * 
 from  contestant_entries
-where contestant_id = 1
+where contestant_id = 2
 
 delete from contestant_entries where photo_file_name is null
 
@@ -34,4 +35,3 @@ where contestant_id = 11
 
 
 1
-
