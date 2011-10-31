@@ -74,7 +74,8 @@ footer {
   color: #d0a16d;  
 }
 
-
+*/
+/*
 div.field, div.actions {
   margin-bottom: 10px;
   display: block;  
@@ -88,6 +89,7 @@ div.field label {
   float: left;
   display: block;
   width: 200px;
+  clear: none;
 }
 
 
@@ -104,16 +106,12 @@ div#rules  {
 }
 
 
--- make it round 
 div.field select {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;  
-}
+}*/
 
-
-
--- Error Handler Area 
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -153,4 +151,4 @@ div.field select {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
-} */
+} 
