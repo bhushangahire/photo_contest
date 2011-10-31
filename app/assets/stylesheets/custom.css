@@ -74,8 +74,8 @@ footer {
   color: #d0a16d;  
 }
 
-*/
-/*
+
+
 div.field, div.actions {
   margin-bottom: 10px;
   display: block;  
@@ -105,23 +105,21 @@ div#rules  {
   padding-top: 10px;
 }
 
-
-div.field select {
+select {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;  
-}*/
-
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
 }
 
 .field_with_errors label {
   color: #fff;
 }
+
+.field_with_errors {  
+  background-color: red;    
+}
+
+*/
 
 #error_explanation {
   width: 400px;
@@ -151,4 +149,9 @@ div.field select {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
-} 
+}
+
+.long_label {
+ text-align: right;
+ padding-left: 15px;
+}

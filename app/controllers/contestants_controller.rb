@@ -1,6 +1,7 @@
 class ContestantsController < ApplicationController
 
   def new
+    @title = "Picture this Calendar Contest - Enter"
     @contestant = Contestant.new
     @entry = ContestantEntry.new 
   end
@@ -15,7 +16,8 @@ class ContestantsController < ApplicationController
    if @contestant.save
       flash[:success] = "Thank you for submission!"
       redirect_to @contestant
-   else     
+   else
+    @title = "Picture this Calendar Contest - Enter" 
     render 'new'
    end
   end
@@ -27,8 +29,13 @@ class ContestantsController < ApplicationController
       flash[:success] = "Thanks for submission!"
       redirect_to @contestant
    else
+    @title = "Picture this Calendar Contest - Enter"
     render 'new'
    end
+  end
+  
+  def index
+    redirect_to :new_contestant
   end
   
   private
@@ -46,11 +53,9 @@ class ContestantsController < ApplicationController
   end
 
 
-  def build_contestant_entry
-    
-    
+  #def build_contestant_entry
     #entry.photo =  params[:contestant_entry][:photo]
-    return entry  
-  end
+  #  return entry  
+  #end
 
 end

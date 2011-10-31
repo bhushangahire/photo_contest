@@ -34,31 +34,31 @@
       <!--<br />-->
   </p>
   <!-- email for contestant -->
-    <div class="field">
-    <%= f.label :email %>
+    <p>
+    <%= f.label :email, ("Email:") %>
     <%= f.text_field :email %>
-    </div>
+    </p>
     
   <!-- other fields for constetant entry -->
   <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
-  <div class="field">
-    <%= current_entry_form.label :first_name %>
+  <p>
+    <%= current_entry_form.label :first_name, ("First Name:") %>
     <%= current_entry_form.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :last_name %>
+  </p>
+  <p>
+    <%= current_entry_form.label :last_name, ("Last Name:") %>
     <%= current_entry_form.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :address %>
+  </p>
+  <p>
+    <%= current_entry_form.label :address, ("Address:") %>
     <%= current_entry_form.text_field :address %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :city %>
+  </p>
+  <p>
+    <%= current_entry_form.label :city, ("City:") %>
     <%= current_entry_form.text_field :city %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :state %>        
+  </p>
+  <p>
+    <%= current_entry_form.label :state, ("State:") %>        
     <%= select(:contestant_entry, :state, [ 	
 	['Select a State', ''],
 	['Alabama', 'AL'], 
@@ -111,45 +111,46 @@
 	['Washington', 'WA'], 
 	['West Virginia', 'WV'], 
 	['Wisconsin', 'WI'], 
-	['Wyoming', 'WY']]) 
+	['Wyoming', 'WY']] ) 
     %>    
-  </div>  
-  <div class="field">
-    <%= current_entry_form.label :zip %>
-    <%= current_entry_form.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :phone %>
+  </p>  
+  <p>
+    <%= current_entry_form.label :zip, ("Zip:") %>
+    <%= current_entry_form.text_field :zip, :size=>"5"%>
+  </p>
+  <p>
+    <%= current_entry_form.label :phone, ("Phone:") %>
     <%= current_entry_form.text_field :phone %>
-  </div>
-  <div class="field"> 
-    <%= current_entry_form.label :photographer, ("My photo was taken by (First and last name:)") %>    
-    
-    <%= current_entry_form.text_field :photographer %>
-  </div>
-  <div class="field">
-    <%= current_entry_form.label :location,
-                                 ("The location in my photo is (i.e. Art museum")
-                                 %>    
-    <%= current_entry_form.text_field :location %>
-  </div>  
-  <div class="field">
-    <%= current_entry_form.label :contest_source, ('How did you hear about this contest?') %>
+  </p>
+  <p><span class="long_label">My photo was taken by (First and last name:)<br />
+    <%= current_entry_form.text_field :photographer, :size=>"40", :style=>"padding-left: 30px;" %></span>
+  </p>
+  <p><span class="long_label">The location in my photo is (i.e. Art museum):<br />    
+    <%= current_entry_form.text_field :location, :size=>"40", :style=>"padding-left: 30px;" %>
+  </p>  
+  <p>
+    <span class="long_label">How did you hear about this contest?</span><br />
     <%= select(:contestant_entry, :contest_source, 
-                [['Email', 'Email'], ['Friend', 'Friend']]               
+                [['email', 'email'], ['flyer', 'flyer'] , ['in-store', 'in-store']]               
               ) 
     %>
-  </div>  
-  <div class="field" id="rules">
-    <%= current_entry_form.label :agreed_to_rules,  ("I have read the offical rules of USAgencies Picture This! Calendar Contest and agree to the contests's
-terms and conditions.")  %>
+  </p>    
+  <p>    
     <%= current_entry_form.check_box :agreed_to_rules %>
-  </div>  
+    I have read the <%= link_to "official rules", rules_path  %> of USAgencies<br />
+    PICTURE THIS! calendar contest and agree to <br />
+    the contest's terms and conditions.</p>
+  </p>
+  <p>
+    <input type="checkbox" name="checkbox2" id="checkbox2" />
+    Yes, please send me information and special<br />
+    offers for USAgencies.
+  </p>
  <% end %>
 <span class="entersubhead"> 3. Click Submit and you're all set! </span>
-  <div class="actions">
+  <p>
     <%= f.submit "Submit" %>
-  </div>
+  </p>
 <% end %>
 
 
