@@ -1,4 +1,6 @@
 PhotoContest::Application.routes.draw do
+  devise_for :users
+
   get "contestants/new"
 
     resources :contestants          #,   :only => [:new, :create, :update, :show]

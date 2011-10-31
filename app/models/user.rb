@@ -1,0 +1,15 @@
+class User < ActiveRecord::Base
+  
+  # SRaden 2011-10-30 Commented out default devise modules
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  #devise :database_authenticatable, :registerable,
+  #       :recoverable, :rememberable, :trackable, :validatable
+  
+  # SRaden 2011-10-30  removing registerable module
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+end

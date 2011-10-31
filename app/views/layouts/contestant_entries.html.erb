@@ -5,6 +5,7 @@
       <%= stylesheet_link_tag    "application" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
+      </style>
   </head>
   <body>
     <div class="container">
@@ -19,13 +20,24 @@
           </ul>
         </nav>
 
+        <div class="user-auth-nav" style="float:right">
+          <% if user_signed_in? %>  
+          <%= link_to('Logout', destroy_user_session_path, :method=> :delete) %> 
+          <% else %>
+          <%= link_to('Login', new_user_session_path)  %> 
+          <% end %>
+        </div
+              
       </header>
 
       <section>
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, :class => "flash #{key}") %>
         <% end %>
-        <%= yield %>
+        
+        
+          <%= yield %>
+        
       </section>
       
       <footer>

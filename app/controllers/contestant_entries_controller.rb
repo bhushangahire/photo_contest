@@ -1,4 +1,5 @@
 class ContestantEntriesController < ApplicationController
+  before_filter :authenticate_user!
       
   def index    
     @contestants = Contestant.paginate(:page => params[:page], :per_page => 2)
