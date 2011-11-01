@@ -18,7 +18,7 @@ class ContestantsController < ApplicationController
    @contestant = get_customer_by_email_param   
    @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save      
-      flash[:notice]= "Success"      
+      flash[:now]= "Success"      
       redirect_to @contestant
    else
     @title = "Picture this Calendar contest - Enter" 
@@ -30,7 +30,7 @@ class ContestantsController < ApplicationController
    @contestant = get_customer_by_email_param
    entry = @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
-      flash[:notice] = "Success"      
+      flash[:now] = "Success"      
       redirect_to @contestant
    else
     @title = "Picture this Calendar contest - Enter"
