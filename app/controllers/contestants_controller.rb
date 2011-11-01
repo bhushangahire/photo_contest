@@ -17,9 +17,8 @@ class ContestantsController < ApplicationController
   def create  
    @contestant = get_customer_by_email_param   
    @contestant.contestant_entries.build(params[:contestant_entry])
-   if @contestant.save
-      debugger
-      flash[:notice].includes? "Success"
+   if @contestant.save      
+      flash[:notice]= "Success"      
       redirect_to @contestant
    else
     @title = "Picture this Calendar contest - Enter" 
