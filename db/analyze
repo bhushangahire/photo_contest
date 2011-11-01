@@ -1,12 +1,14 @@
 --delete from  contestants
 --delete from  contestant_entries
 
-select * from contestants  where id = (select max(id) from contestants)
+select *, opt_in from contestants  where id = (select max(id) from contestants)
 
 
 select * 
 from  contestant_entries
-where contestant_id = 2
+where contestant_id = 6
+
+
 
 delete from contestant_entries where photo_file_name is null
 

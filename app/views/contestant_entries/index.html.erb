@@ -1,27 +1,26 @@
 <h1>Contest Gallery</h1>
-<table>
+<table id="gallery">
   <%= will_paginate  @contestants %>
-  <% @contestants.each do |contestant| %>
-    <tr>
-      <td>
-          <h3>Contestant Email: <%= contestant.email %></h3></td>
-      <td/>
-      <td/>  
+  <% @contestants.each do |contestant| %>    
+    <tr class="contestant_email_grid">
+      <td colspan="3">
+         Contestant Email: <%= contestant.email %>
+      </td>
     </tr>
-    <tr>
-      <td>
+    <tr class="contestant_entry_entries">
+      <td class="contestant_entry">
         <% entry = get_entry contestant.contestant_entries,  1%>
         <% if not entry.nil? %>
         <%=  render  :partial => 'entry' , :object => entry%>
       <% end %>
       </td>
-      <td>
+      <td class="contestant_entry">
         <% entry = get_entry contestant.contestant_entries,  2%>
         <% if not entry.nil? %>
         <%=  render  :partial => 'entry' , :object => entry%>
       <% end %>
       </td>
-      <td>
+      <td class="contestant_entry">
         <% entry = get_entry contestant.contestant_entries,  3%>
         <% if not entry.nil? %>
         <%=  render  :partial => 'entry' , :object => entry%>

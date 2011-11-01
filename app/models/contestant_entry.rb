@@ -1,12 +1,11 @@
 class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "200x200>" }
   
-  attr_accessible :photo, :rating , :first_name, :last_name, :address, :city, :state, :zip, :phone, :photographer, :location, :contest_source, :agreed_to_rules  
-  
+  attr_accessible :photo, :rating , :first_name, :last_name, :address,
+                  :city, :state, :zip, :phone, :photographer, :location, :contest_source,
+                  :agreed_to_rules  
 
-  #problematic
   validate :limit_to_three_entries , :on => :create
   
   validates_attachment_presence :photo, :message => "You must attach a photo."                    
@@ -19,26 +18,13 @@ class ContestantEntry < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name, :presence => true      
   validates :address, :presence => true 
-  validates  :city, :presence => true
-  validates  :state, :presence => true
-  validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
+  validates :city, :presence => true
+  validates :state, :presence => true
+  validates :zip, :presence => true, :numericality => true, :length => { :is => 5 }
   validates :phone, :presence => true
   validates :photographer, :presence => true
   validates :location, :presence => true
   validates :contest_source, :presence => true
-  
- 
- 
- # validates :first_name, :presence => true
- # validates :last_name, :presence => true      
- # validates :address, :presence => true 
- # validates  :city, :presence => true
- # validates  :state, :presence => true
- # validates  :zip, :presence => true, :numericality => true, :length => { :is => 5 }
- # validates :phone, :presence => true
- # validates :photographer, :presence => true
- # validates :location, :presence => true
- # validates :contest_source, :presence => true
  
   private
   #make sure there are only three contesant entries for the corresponding contesant  
@@ -76,18 +62,3 @@ class ContestantEntry < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: contestant_entries
-#
-#  id                 :integer         not null, primary key
-#  contestant_id      :integer
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :string(255)
-#  photo_update_at    :datetime
-#  created_at         :datetime
-#  updated_at         :datetime
-#
-

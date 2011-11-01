@@ -9,10 +9,9 @@
       <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="wrap"  >
-      <div id="header" >                 
-          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400"
-          >
+    <div id="wrap">
+      <div id="header" >        
+          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400">          
             <param name="movie" value="/videos/affirmative_flash.swf" />
             <param name="quality" value="high" />
             <param name="wmode" value="opaque" />
@@ -39,8 +38,7 @@
             </object>
             <!--<![endif]-->
           </object>
-        </div>
-      
+      </div>      
        <div id="nav">
           <ul>            
             <li><span class="navspace"><%= link_to "Home", root_path %></span></li>|
@@ -54,6 +52,7 @@
           <% flash.each do |key, value| %>
             <%= content_tag(:div, value, :class => "flash #{key}") %>
           <% end %>
+          
           <%= yield %>
         </section>        
        </div><!-- main --->
@@ -82,7 +81,6 @@
         </div><!-- footer -->        
     </div><!-- wrap -->  
     <%= debug(params) if Rails.env.development? %>
-    
-   </body>
+    </body>
 </html>
 

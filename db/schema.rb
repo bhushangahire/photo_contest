@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031012247) do
+ActiveRecord::Schema.define(:version => 20111101054717) do
 
   create_table "contestant_entries", :force => true do |t|
     t.integer  "contestant_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20111031012247) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "opt_in"
   end
 
   create_table "users", :force => true do |t|

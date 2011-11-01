@@ -153,6 +153,58 @@ select {
 }
 
 .long_label {
- text-align: right;
- padding-left: 15px;
+  text-align: right;
+  padding-left: 15px;
 }
+
+
+#gallery {
+  border: thick;
+  border-color: #ae7436; 
+}
+
+
+tr.contestant_email_grid {
+ background-color: #ae7436;   
+}
+
+tr.contestant_email_grid td {
+  padding:10px;
+}
+
+tr.contestant_entries {
+  
+  
+}
+
+td.contestant_entry {
+  padding:10px;
+  
+}
+
+span.rating_form { 
+  
+}
+
+p.rating_form_element {
+  /*display: block;*/
+}
+  
+
+img.entry_image { 
+  width:250px;
+  height:250px;
+}
+
+
+span.rating {  
+  
+}
+
+label.entry_details {  
+  font-weight:bold;
+  padding-right: 15px;
+  margin-right: 10px;
+}
+
+

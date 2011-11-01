@@ -2,7 +2,7 @@ class ContestantEntriesController < ApplicationController
   before_filter :authenticate_user!
       
   def index    
-    @contestants = Contestant.paginate(:page => params[:page], :per_page => 2)
+    @contestants = Contestant.paginate(:page => params[:page], :per_page => 10)
   end
 
   def update   
@@ -20,7 +20,7 @@ class ContestantEntriesController < ApplicationController
   end
   
   def show
-    @contestant_entry =  ContestantEntry.find(params[:id])
+    @entry =  ContestantEntry.find(params[:id])
   end
 
 end

@@ -1,23 +1,17 @@
-<%= image_tag entry.photo.url(:medium) %>
-<% if entry.rating.nil? %>  
-  <%= form_for entry  do |f| %>
-    <div class="error_messages">
+<%= image_tag entry.photo.url(:medium), :class => "entry_image" %>
+<% if entry.rating.nil? %>
+  <span class="rating_form">
+  <%= form_for entry  do |f| %>    
       <%= f.error_messages %>
-    </div>
-    <div class="field">
-      <%= f.label :rating %>
-      <%= select( :entry, :rating, list_of_numbers(100) ) %>
-    <div class="actions">
+      <p class="rating_form_element"><%= f.label :rating %>
+      <%= select( :entry, :rating, list_of_numbers(5) ) %></p>
+      <%= f.label :month %>
+      <%= select( :entry, :rating, list_of_numbers(12) ) %>
       <%= f.submit "Submit Vote" %>
-    </div>  
    <% end %><!-- rating form -->
+   </span>   
 <% else %>
-  <p> Rating: <%=  entry.rating %></p>
+  <span class="rating"><p>Rating: <%=  entry.rating %></p></span>
 <% end %><!--was item rated-->
-<strong>Entry Info</strong> <br>
-<%= entry.first_name %> <%= entry.last_name %> : <%= entry.phone %><br >
-<%= entry.address %>&nbsp;<%= entry.city%>,<%= entry.state %>&nbsp;<%= entry.zip%><br >
-Photographer: <%= entry.photographer %><br >
-Location:  <%= entry.location %><br >
-Source:  <%=  entry.contest_source%>
+<%= link_to "Details", contestant_entry_path(entry) %>
 

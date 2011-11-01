@@ -1,0 +1,41 @@
+<div id="image_detail">
+  <%= image_tag @entry.photo.url(:medium), :class => "@entry_image" %>
+</div>
+<div id="entry_entry_details">  
+<% unless @entry.rating.nil?  %>  
+    <p><label class="entry_details">Rating:</label>
+      <%=@entry.rating%></p>    
+    <p><label class="entry_details">Date Rating </label>  
+      <%=@entry.updated_at%></p>
+<% else %>
+    <p><label class="entry_details">Rating:</label>
+      Not Rated Yet</p>  
+<% end %>   
+    <p><label class="entry_details">Email:</label>  
+      <%= @entry.contestant.email %></p>
+    <p><label class="entry_details">First Name:</label>
+      <%= @entry.first_name %></p>
+    <p><label class="entry_details">Last Name:</label>
+      <%=@entry.last_name%></p>
+    <p><label class="entry_details">Address:</label>
+      <%=@entry.address%></p>
+    <p><label class="entry_details">City:</label>
+      <%=@entry.city%></p>
+    <p><label class="entry_details">State:</label>
+      <%=@entry.state%></p>    
+    <p><label class="entry_details">Zip:</label>
+      <%=@entry.zip%></p>
+    <p><label class="entry_details">Phone:</label>
+      <%=@entry.photographer%></p>
+    <p><label class="entry_details">Photographer:</label>
+      <%=@entry.photographer%></p>    
+    <p><label class="entry_details">Location:</label>
+      <%=@entry.location%></p>
+    <p><label class="entry_details">Source:</label>
+      <%=@entry.contest_source%></p>
+    <p><label class="entry_details">Entry Date:</label>
+      <%=@entry.created_at%></p>
+    <p><label class="entry_details">Opted In?</label>
+      <%=@entry.contestant.opt_in%></p>
+</div>
+<%= link_to "Back to Gallery", contestant_entries_path %>
