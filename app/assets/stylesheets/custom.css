@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #fff9f3;
+ background: #fff9f3;
   font-family: arial, sans-serif;
 }
 
@@ -173,8 +173,6 @@ tr.contestant_email_grid td {
 }
 
 tr.contestant_entries {
-  
-  
 }
 
 td.contestant_entry {
@@ -202,9 +200,18 @@ span.rating {
 }
 
 label.entry_details {  
-  font-weight:bold;
+  font-weight: bold;
   padding-right: 15px;
   margin-right: 10px;
 }
 
+a.details_link {
+  clear: all;
+  float: left;
+  padding: 35px;  
+}
+
+div.rating_form {
+  
+}
 

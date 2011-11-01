@@ -1,3 +1,4 @@
+<div class="rating_form"/>
 <%= image_tag entry.photo.url(:medium), :class => "entry_image" %>
 <% if entry.rating.nil? %>
   <span class="rating_form">
@@ -5,13 +6,14 @@
       <%= f.error_messages %>
       <p class="rating_form_element"><%= f.label :rating %>
       <%= select( :entry, :rating, list_of_numbers(5) ) %></p>
-      <%= f.label :month %>
-      <%= select( :entry, :rating, list_of_numbers(12) ) %>
-      <%= f.submit "Submit Vote" %>
+      <%= f.label :month %>            
+      <%= select_month(1, :field => "month_rated_for", :use_short_month => true) %>
+      <%= f.submit "Submit Vote" %> 
+      
    <% end %><!-- rating form -->
    </span>   
 <% else %>
   <span class="rating"><p>Rating: <%=  entry.rating %></p></span>
 <% end %><!--was item rated-->
-<%= link_to "Details", contestant_entry_path(entry) %>
-
+<%= link_to "Details", contestant_entry_path(entry),  :class=>"details_link"%>
+</div>

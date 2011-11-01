@@ -1,23 +1,25 @@
 class ContestantsController < ApplicationController
 
   def new
-    @title = "Picture this Calendar Contest - Enter"
+    @title = "Picture this Calendar contest - Enter"
     @contestant = Contestant.new
     @entry = ContestantEntry.new 
   end
   
   def show
-    @contestant = Contestant.find(params[:id])
+     @contestant = Contestant.find(params[:id])
+     @title = "Picture this Calendar contest - Enter"     
   end
 
   def create  
    @contestant = get_customer_by_email_param   
    @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
-      flash[:success] = "Thank you for submission!"
+      debugger
+      flash[:notice] = "Success"
       redirect_to @contestant
    else
-    @title = "Picture this Calendar Contest - Enter" 
+    @title = "Picture this Calendar contest - Enter" 
     render 'new'
    end
   end
@@ -26,10 +28,10 @@ class ContestantsController < ApplicationController
    @contestant = get_customer_by_email_param
    entry = @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
-      flash[:success] = "Thanks for submission!"
+      flash[:notice] = "Success"      
       redirect_to @contestant
    else
-    @title = "Picture this Calendar Contest - Enter"
+    @title = "Picture this Calendar contest - Enter"
     render 'new'
    end
   end
@@ -40,8 +42,6 @@ class ContestantsController < ApplicationController
   
   private
   
-  
-     
   #is this contestant is a returning customer
   def get_customer_by_email_param
     email = params[:contestant][:email].strip
@@ -51,6 +51,7 @@ class ContestantsController < ApplicationController
      end
     return contestant
   end
+
 
 
   #def build_contestant_entry
