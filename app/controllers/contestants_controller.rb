@@ -8,7 +8,10 @@ class ContestantsController < ApplicationController
   
   def show
      @contestant = Contestant.find(params[:id])
-     @title = "Picture this Calendar contest - Enter"     
+     @title = "Picture this Calendar contest - Enter"
+     if flash[:notice] = "Success"
+       @success = true
+     end
   end
 
   def create  
@@ -16,7 +19,7 @@ class ContestantsController < ApplicationController
    @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
       debugger
-      flash[:notice] = "Success"
+      flash[:notice].includes? "Success"
       redirect_to @contestant
    else
     @title = "Picture this Calendar contest - Enter" 
