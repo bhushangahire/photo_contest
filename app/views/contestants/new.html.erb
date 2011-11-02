@@ -131,9 +131,9 @@
   <p>
     <span class="long_label">How did you hear about this contest?</span><br />
     <%= select(:contestant_entry, :contest_source, 
-                [['email', 'email'], ['flyer', 'flyer'] , ['in-store', 'in-store']]               
-              ) 
-    %>
+                [['E-mail', 'E-mail'], ['Flyer', 'Flyer'], ['Internet Ad', 'Internet Ad'], ['Agent', 'Agent'] ]               
+              )   
+    %>    
   </p>    
   <p>    
     <%= current_entry_form.check_box :agreed_to_rules %>
