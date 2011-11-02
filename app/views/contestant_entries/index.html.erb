@@ -2,7 +2,7 @@
 <table id="gallery">
   <%= will_paginate  @contestants %>
   <% @contestants.each do |contestant| %>    
-    <tr class="contestant_email_grid">
+    <tr class="contestant_email_grid" width="100%">
       <td colspan="3">
          Contestant Email: <%= contestant.email %>
       </td>

@@ -50,7 +50,7 @@
               <% end %></span>             
             </li>
         </div>
-      <div id="main"> 
+      <div id="main_gallery"> 
         <section>
           <% flash.each do |key, value| %>
             <%= content_tag(:div, value, :class => "flash #{key}")  unless value ="Success" %>
@@ -58,7 +58,7 @@
           <%= yield %>        
         </section>
       </div>
-      <div id="sidebar">
+      <div id="sidebar_gallery">
       </div><!-- sidebar -->
       <div id="footer">
         <div id="happylogo">

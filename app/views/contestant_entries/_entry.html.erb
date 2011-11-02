@@ -1,18 +1,24 @@
-<div class="rating_form"/>
-<%= image_tag entry.photo.url(:medium), :class => "entry_image" %>
-<% if entry.rating.nil? %>
-  <span class="rating_form">
-  <%= form_for entry  do |f| %>    
-      <%= f.error_messages %>
-      <p class="rating_form_element"><%= f.label :rating %>
-      <%= select( :entry, :rating, list_of_numbers(5) ) %></p>
-      <%= f.label :month %>            
-      <%= select_month(0, :prefix =>"entry",  :field_name=> "month_rated_for", :use_short_month => true, :prompt=>"Pick Month") %>
-      <%= f.submit "Submit Vote" %>       
-   <% end %><!-- rating form -->
-   </span>   
-<% else %>
-  <span class="rating"><p>Rating: <%=  entry.rating %></p></span>
-<% end %><!--was item rated-->
-<%= link_to "Details", contestant_entry_path(entry),  :class=>"details_link"%>
+<div class="rating_form">
+<%= image_tag entry.photo.url(:thumb), :class => "entry_image" %>  
+  <span class="rating_form">    
+<%= form_for entry  do |f| %>    
+    <%= f.error_messages %>
+      <% if entry.rating %>    
+        <span class="prior">Prior Rating:<strong><%=  entry.rating %></strong>
+        For Month:<strong><%= get_month_if_rated (entry) %></strong></span>
+      <% else %>
+        <span class="prior"><strong>Unrated</strong></span>  
+      <% end %>
+      
+      <span><%= f.label :rating, "Rating:",:class=>"rating_form_lab"%>
+    <%= select( :entry, :rating, list_of_numbers(5),  ) %></span>
+    <span><%= f.label :month, "Month:", :class=>"rating_form_lab" %>
+          <%= select_month(0,:prefix =>"entry",  :field_name=> "month_rated_for",
+                            :use_short_month => true, :prompt=>"Pick Month") %>
+    </span>
+    <span><%= f.submit "Submit Vote",  :class=>"rating_but" %></span>
+    <span><%= link_to "Details", contestant_entry_path(entry),  :class=>"details_link"%></span>
+ <% end %><!-- rating form -->    
+
+ </span>   
 </div>

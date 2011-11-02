@@ -111,15 +111,16 @@ select {
   border-radius:         10px;  
 }
 
+*/
+
 .field_with_errors label {
   color: #fff;
 }
 
 .field_with_errors {  
-  background-color: red;    
+  background-color: red;  
 }
 
-*/
 
 
 #error_explanation {
@@ -165,14 +166,19 @@ select {
 
 
 tr.contestant_email_grid {
- background-color: #ae7436;   
+ width:670px;
+ background-color: #ae7436;
+ padding-left :20px;
 }
 
 tr.contestant_email_grid td {
+ 
   padding:10px;
 }
 
 tr.contestant_entries {
+  margin:0;
+  padding:0;
 }
 
 td.contestant_entry {
@@ -181,18 +187,19 @@ td.contestant_entry {
 }
 
 span.rating_form { 
-  
+ float:left; 
 }
 
-p.rating_form_element {
-  /*display: block;*/
+span.rating_form span {
+  clear: both;
+  float:left;
 }
   
 
 img.entry_image { 
-  width:250px;
-  height:250px;
+ 
 }
+
 
 
 span.rating {  
@@ -206,9 +213,9 @@ label.entry_details {
 }
 
 a.details_link {
-  /*clear: all */
+  clear:both;
   float: left;
-  padding: 35px;  
+  
 }
 
 div.rating_form {
@@ -217,4 +224,38 @@ div.rating_form {
 
 p.entry_detail {
   clear: both; 
+}
+
+label.rating_form_lab{
+ text-align: left;  
+}
+
+
+#main_gallery {
+  float:left;
+  width:670px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+}
+
+
+#sidebar_gallery {
+  float:right;
+  width:281px;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.prior {
+  color: #a65510;
+  font-size: 80%;
+}
+
+rating_but { 
+  text-align:left;
+  float:left;
 }

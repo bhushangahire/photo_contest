@@ -9,4 +9,12 @@ module ApplicationHelper
      return 
   end
   
+  def get_month_if_rated (entry)
+    if entry && entry.month_rated_for
+      return Date::MONTHNAMES[entry.month_rated_for]
+    else
+      return ""
+    end
+    
+  end
 end

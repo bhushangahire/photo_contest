@@ -6,7 +6,7 @@
     <p class="entry_detail" ><label class="entry_details">Rating:</label>
       <%= @entry.rating %></p>
     <p class="entry_detail" ><label class="entry_details">Month:</label>  
-      <%= Date::MONTHNAMES[@entry.month_rated_for] %></p>
+      <%= get_month_if_rated(@entry) %></p>
     <p class="entry_detail" ><label class="entry_details">Date Rated:</label>  
       <%= @entry.updated_at %></p>
 <% else %>
