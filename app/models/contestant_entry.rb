@@ -4,7 +4,7 @@ class ContestantEntry < ActiveRecord::Base
   
   attr_accessible :photo, :rating , :first_name, :last_name, :address,
                   :city, :state, :zip, :phone, :photographer, :location, :contest_source,
-                  :agreed_to_rules  
+                  :agreed_to_rules, :month_rated_for
 
   validate :limit_to_three_entries , :on => :create
   
@@ -13,7 +13,6 @@ class ContestantEntry < ActiveRecord::Base
 #  validates_attachment_size  :photo,:less_than=>20.megabyte,:greater_than=>1.megabyte,:message => "Photo size must be between 1 and 20 Megabytes",:allow_nil => true
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
   validate :size_acceptable, :on => :create
-
   validates :agreed_to_rules, :presence     => true  
   validates :first_name, :presence => true
   validates :last_name, :presence => true      

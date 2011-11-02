@@ -7,9 +7,8 @@
       <p class="rating_form_element"><%= f.label :rating %>
       <%= select( :entry, :rating, list_of_numbers(5) ) %></p>
       <%= f.label :month %>            
-      <%= select_month(1, :field => "month_rated_for", :use_short_month => true) %>
-      <%= f.submit "Submit Vote" %> 
-      
+      <%= select_month(0, :prefix =>"entry",  :field_name=> "month_rated_for", :use_short_month => true, :prompt=>"Pick Month") %>
+      <%= f.submit "Submit Vote" %>       
    <% end %><!-- rating form -->
    </span>   
 <% else %>

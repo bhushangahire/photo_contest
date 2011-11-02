@@ -6,10 +6,12 @@ class ContestantEntriesController < ApplicationController
   end
 
   def update   
-   @contestants = Contestant.paginate(:page => params[:page], :per_page => 2)
+   @contestants = Contestant.paginate(:page => params[:page], :per_page => 10)
    
-   entry = ContestantEntry.find(params[:id])    
-   entry.rating = params[:entry][:rating]   
+   entry = ContestantEntry.find(params[:id])   
+   entry.rating = params[:entry][:rating]
+   entry.month_rated_for = params[:entry][:month_rated_for]
+   debugger
    if entry.save
     flash[:notice] = "Vote recorded for #{entry.contestant.email}"
     redirect_to contestant_entries_path   
