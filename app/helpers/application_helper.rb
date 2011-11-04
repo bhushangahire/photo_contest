@@ -18,7 +18,26 @@ module ApplicationHelper
       return Date::MONTHNAMES[entry.month_rated_for]
     else
       return ""
+    end    
+  end
+  
+  def custom_errors_flag(contestant)
+    custom_messages = Hash.new
+    # if there were errors on the entry
+    if contestant.contestant_entries.last.errors
+      # note a photo error if present
+      if contestant.contestant_entries.last.errors.messages[:photo]
+        custom_messages[:photo] =  true            
+      end
+      #  note 1 time only that other errors were present
+      if custom_messages[:other].nil?
+          custom_messages[:other] = true
+      end
     end
-    
+    #  note 1 time only that other errors were present  
+    if contestant.errors && custom_messages[:other].nil?
+      custom_messages[:other] = true
+    end
+    return custom_messages
   end
 end

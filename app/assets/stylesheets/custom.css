@@ -111,8 +111,6 @@ select {
   border-radius:         10px;  
 }
 
-*/
-
 .field_with_errors label {
   color: #fff;
 }
@@ -121,6 +119,7 @@ select {
   background-color: red;  
 }
 
+*/
 
 
 #error_explanation {
@@ -255,7 +254,15 @@ label.rating_form_lab{
   font-size: 80%;
 }
 
-rating_but { 
+#rating_but { 
   text-align:left;
   float:left;
+}
+
+span.error_field {
+  text-align:  justify;
+  display:compact;
+  clear: none;
+  color: red;
+  font-size: 50%;  
 }

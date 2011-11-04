@@ -5,22 +5,25 @@
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   
     <% if @contestant.errors.any? %>
+    <% custom_messages = custom_errors_flag(@contestant) %>
     <div id="error_explanation">
       <h2>Errors prohibited this post from being saved</h2>      
-      <ul>
-      <% @contestant.errors.full_messages.each do |msg| %>                        
-        <% if msg.include?  "Contestant entries is invalid" %>
-          <% @contestant.contestant_entries.last.errors.full_messages.each  do | entry_msg | %>
-            <li><%= entry_msg  %></li>    
-          <% end %>
-        <% else %>
-            <li><%= msg %></li>
+      <ul>                              
+        <%if custom_messages[:other] %>               
+            <li>Oops! Please be sure you complete all required information.</li>    
         <% end %>
-        
-      <% end %>
+        <% if custom_messages[:photo]  %>
+            <li>Sorry, there’s a problem with your photo. Please upload a different file that is:<br />
+                <ul>
+                    <li>Either .JPEG or .TIFF format</li>
+                    <li>At least 1 MB in size (up to 20 MB)</li>
+                    <li>Taken in HORIZONTAL position, not vertical</li>
+                <ul>                
+            </li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
   
     <p><span class="entersubhead">1. Upload your picture.&nbsp; &nbsp;</span>       
     <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
@@ -30,15 +33,14 @@
     <span class="smallital">(Horizontal .JPG or TIFF file no larger than 20 MB)
     </span>    
   </p>
-  <p><span class="entersubhead">2. Enter your contact information.</span>
-      <!--<br />-->
+  <p><span class="entersubhead">2. Enter your contact information.</span> 
   </p>
   <!-- email for contestant -->
-    <p>
+  <p>      
     <%= f.label :email, ("Email:") %>
-    <%= f.text_field :email %>
-    </p>
-    
+    <%= f.text_field :email %>          
+  </p>
+
   <!-- other fields for constetant entry -->
   <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
   <p>
