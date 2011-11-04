@@ -1,6 +1,6 @@
 class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "150x150>" }
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   attr_accessible :photo, :rating , :first_name, :last_name, :address,
                   :city, :state, :zip, :phone, :photographer, :location, :contest_source,
