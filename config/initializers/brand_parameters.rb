@@ -1,6 +1,6 @@
  
 #change this configuration element to change the brand
-PhotoContest::Application.config.brand_name = "US"
+PhotoContest::Application.config.brand_name = "DC"
 # not this is an initalizer, rails app restart is required to reflect changes
 
 if PhotoContest::Application.config.brand_name == "AA"
