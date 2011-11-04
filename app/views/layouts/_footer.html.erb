@@ -1,0 +1,15 @@
+<div id="footer">  
+  <div id="happylogo">
+    <img
+         src="<%= image_path(get_branded_asset("drivingcustlogo.png"))%>"               
+         alt="Driving Customers Happy. It's our best policy."
+         width="288" height="140" /></div>
+  <div id="usagencieslink">
+    <a href="<%= get_brand_url %>" target="_blank">
+      <img src="<%= image_path(PhotoContest::Application.config.logo_asset_path)%>" width="324" height="68" border="0" class="bottomlogo" />
+    </a>          
+    <br />
+    For a FREE QUOTE on low-cost auto insurance
+    <a href="<%= get_brand_url %>" target="_blank">visit <%= get_brand %> today.</a></div>
+    <span class="clear">&nbsp;</span>
+</div><!-- footer -->

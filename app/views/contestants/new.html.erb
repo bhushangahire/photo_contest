@@ -137,14 +137,14 @@
   </p>    
   <p>    
     <%= current_entry_form.check_box :agreed_to_rules %>
-    I have read the <%= link_to "official rules", rules_path, :target => "_blank" %> of USAgencies<br />
+    I have read the <%= link_to "official rules", rules_path, :target => "_blank" %> of <%= get_brand %><br />
     PICTURE THIS! calendar contest and agree to <br />
     the contest's terms and conditions.</p>
   </p>  
   <p>
     <%= f.check_box :opt_in %>    
     Yes, please send me information and special<br />
-    offers for USAgencies.
+    offers for <%= get_brand %>.
   </p>
  <% end %>
 <span class="entersubhead"> 3. Click Submit and you're all set! </span>

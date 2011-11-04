@@ -6,8 +6,8 @@
     />
 </p>
 <p>
-  At <a href="http://www.usagencies.com"
-        target="_blank">USAgencies,
+  At <a href="<%= get_brand_url %>"
+        target="_blank"><%= get_brand %>,
       </a> we not only insure a community, we make a difference. Through the MyCOMMUNITY program, we lend a helping hand to causes that mean the most to you. Now we want to do even more!
       </a><br />
   <br />
@@ -15,7 +15,7 @@
 <p>What do you love about your neighborhood? What’s a wonderful thing about your community that you want to show everyone? What makes your community unique?</p>
 <p><img src="<%= image_path("participate.png")%>" alt="Participate Now!" width="343" height="172" /></p>
 <p>Send your favorite photos that share our spirit of community commitment and we’ll select one winning photo for each month in our new 2012 MyCOMMUNITY calendar. Don’t forget to include seasonal backgrounds or scenes! </p>
-<p><img src="<%= image_path("offerbox.png") %>" alt="If your photo is selected, you'll WIN: $100 Visa Gift Card, 20 copies of the calendar" width="524" height="168" /></p>
+<p><img src="<%= image_path(PhotoContest::Application.config.header_offerbox_asset_path) %>" alt="If your photo is selected, you'll WIN: $100 Visa Gift Card, 20 copies of the calendar" width="524" height="168" /></p>
 <p align="center"><a href="<%= enter_path %>"><img src="<%= image_path("enterbtn.png") %>" alt="Enter Now!" width="174" height="58" border="0" /></a>
 <p align="center"><span class="redtext1">Entry deadline: December 9, 2011</span><br />
   Limit 3 digital photo entries per person, please.</p>
