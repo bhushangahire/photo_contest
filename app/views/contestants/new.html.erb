@@ -5,12 +5,8 @@
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   
     <% if @contestant.errors.any? %>
-    <% custom_messages = custom_errors_flag(@contestant) %>
+    <% custom_messages = custom_errors_flag(@contestant) %>    
     
-    <!-- debugg -->
-    <%=# @contestant.contestant_entries.last.errors.full_messages
-    %>
-    <%= @contestant.errors.full_messages %>
     <div id="error_explanation">
       <h2>Errors prohibited this post from being saved</h2>      
       <ul>                              
