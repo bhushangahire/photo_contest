@@ -1,7 +1,6 @@
 <p>
     <%= image_tag("enterhere.png", :width => "413", :height =>"91") %>
 </p>
-
 <%= form_for @contestant, :html =>{:multipart => true} do |f| %>
   
     <% if @contestant.errors.any? %>
@@ -27,7 +26,7 @@
     <% end %>
   
     <p><span class="entersubhead">1. Upload your picture.&nbsp; &nbsp;</span>       
-    <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
+    <%= fields_for @contestant_entry do |current_entry_form|  %> 
         <%= current_entry_form.file_field :photo %>
     <% end %>    
     <br />
@@ -45,7 +44,7 @@
     <%= f.text_field :email_confirmation %>          
   </p>
   <!-- other fields for constetant entry -->
-  <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
+  <%= fields_for @contestant_entry do |current_entry_form|  %> 
   <p>
     <%= current_entry_form.label :first_name, ("First Name:") %>
     <%= current_entry_form.text_field :first_name %>

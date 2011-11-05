@@ -1,9 +1,9 @@
 class ContestantsController < ApplicationController
 
-  def new
+  def new    
     @title = "Picture this Calendar contest - Enter"
     @contestant = Contestant.new
-    @entry = ContestantEntry.new 
+    @contestant_entry = ContestantEntry.new 
   end
   
   def show
@@ -16,7 +16,7 @@ class ContestantsController < ApplicationController
 
   def create  
    @contestant = get_customer_by_email_param   
-   @contestant.contestant_entries.build(params[:contestant_entry])
+   @contestant_entry = @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save      
       flash[:now]= "Success"      
       redirect_to @contestant
@@ -26,9 +26,9 @@ class ContestantsController < ApplicationController
    end
   end
   
-  def update
+  def update    
    @contestant = get_customer_by_email_param
-   entry = @contestant.contestant_entries.build(params[:contestant_entry])
+   @contestant_entry =  @contestant.contestant_entries.build(params[:contestant_entry])
    if @contestant.save
       flash[:now] = "Success"      
       redirect_to @contestant
