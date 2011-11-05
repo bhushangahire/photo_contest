@@ -6,6 +6,11 @@
   
     <% if @contestant.errors.any? %>
     <% custom_messages = custom_errors_flag(@contestant) %>
+    
+    <!-- debugg -->
+    <%=# @contestant.contestant_entries.last.errors.full_messages
+    %>
+    <%= @contestant.errors.full_messages %>
     <div id="error_explanation">
       <h2>Errors prohibited this post from being saved</h2>      
       <ul>                              
@@ -30,7 +35,7 @@
         <%= current_entry_form.file_field :photo %>
     <% end %>    
     <br />
-    <span class="smallital">(Horizontal .JPG or TIFF file no larger than 20 MB)
+    <span class="smallital">(Horizontal .JPG or TIFF file no smaller than 1 MB and no larger than 20 MB)
     </span>    
   </p>
   <p><span class="entersubhead">2. Enter your contact information.</span> 
@@ -40,7 +45,9 @@
     <%= f.label :email, ("Email:") %>
     <%= f.text_field :email %>          
   </p>
-
+  <p><span class="medium_label"> Confirm Email:</span>
+    <%= f.text_field :email_confirmation %>          
+  </p>
   <!-- other fields for constetant entry -->
   <%= fields_for ContestantEntry.new do |current_entry_form|  %> 
   <p>
@@ -54,6 +61,10 @@
   <p>
     <%= current_entry_form.label :address, ("Address:") %>
     <%= current_entry_form.text_field :address %>
+  </p>
+  <p>
+    <%= current_entry_form.label :address2, ("Address 2:") %>
+    <%= current_entry_form.text_field :address2 %>
   </p>
   <p>
     <%= current_entry_form.label :city, ("City:") %>

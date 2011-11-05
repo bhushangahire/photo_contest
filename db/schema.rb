@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101170914) do
+ActiveRecord::Schema.define(:version => 20111105022907) do
 
   create_table "contestant_entries", :force => true do |t|
     t.integer  "contestant_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111101170914) do
     t.string   "state"
     t.boolean  "agreed_to_rules"
     t.integer  "month_rated_for"
+    t.string   "address2"
   end
 
   create_table "contestants", :force => true do |t|

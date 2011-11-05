@@ -21,6 +21,8 @@
       <%=@entry.last_name%></p>
     <p class="entry_detail" ><label class="entry_details">Address:</label>
       <%=@entry.address%></p>
+    <p class="entry_detail" ><label class="entry_details">Address2:</label>
+      <%=@entry.address2%></p>    
     <p class="entry_detail" ><label class="entry_details">City:</label>
       <%=@entry.city%></p>
     <p class="entry_detail" ><label class="entry_details">State:</label>
@@ -38,7 +40,7 @@
     <p class="entry_detail" ><label class="entry_details">Entry Date:</label>
       <%=@entry.created_at%></p>
     <p class="entry_detail" ><label class="entry_details">Opted In?</label>
-      <%=@entry.contestant.opt_in%></p>
+      <%=@entry.contestant.opt_in ?  "yes" : "no" %></p>
 </div>
 <br />
 <%= link_to "Back to Gallery", contestant_entries_path %>

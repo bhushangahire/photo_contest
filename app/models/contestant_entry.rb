@@ -2,10 +2,11 @@ class ContestantEntry < ActiveRecord::Base
   belongs_to :contestant
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
-  attr_accessible :photo, :rating , :first_name, :last_name, :address,
+  attr_accessible :photo, :rating , :first_name, :last_name, :address, :address2,
                   :city, :state, :zip, :phone, :photographer, :location, :contest_source,
                   :agreed_to_rules, :month_rated_for
 
+  
   validate :limit_to_three_entries , :on => :create
   
   validates_attachment_presence :photo, :message => "You must attach a photo."                    
@@ -16,7 +17,8 @@ class ContestantEntry < ActiveRecord::Base
   validates :agreed_to_rules, :presence     => true  
   validates :first_name, :presence => true
   validates :last_name, :presence => true      
-  validates :address, :presence => true 
+  validates :address, :presence => true
+  validates :address2, :presence => true 
   validates :city, :presence => true
   validates :state, :presence => true
   validates :zip, :presence => true, :numericality => true, :length => { :is => 5 }

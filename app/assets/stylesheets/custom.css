@@ -266,3 +266,7 @@ span.error_field {
   color: red;
   font-size: 50%;  
 }
+
+span.medium_label {
+  font-size: 95%;  
+}
