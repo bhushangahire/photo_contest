@@ -3,8 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem "dynamic_form"
 gem "paperclip"
-gem 'heroku'
-gem 'pg'
 gem 'mysql2'
 gem 'will_paginate'
 gem 'devise'
@@ -12,7 +10,6 @@ gem 'devise'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 # JavaScript Suport
 gem 'therubyracer',  '0.9.8'
@@ -34,7 +31,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
@@ -42,7 +39,7 @@ group :test do
 end
 
 group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'sqlite3'
   #gem 'rspec-rails', '2.6.1'
   gem 'rspec-rails'  
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'

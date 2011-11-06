@@ -1,6 +1,6 @@
  
 #change this configuration element to change the brand
-PhotoContest::Application.config.brand_name = "DC"
+PhotoContest::Application.config.brand_name = "AA"
 # not this is an initalizer, rails app restart is required to reflect changes
 
 if PhotoContest::Application.config.brand_name == "AA"
@@ -8,7 +8,7 @@ if PhotoContest::Application.config.brand_name == "AA"
   PhotoContest::Application.config.brand_name = "A-Affordable"
   PhotoContest::Application.config.brand_dir = "AA"
   PhotoContest::Application.config.brand_url  = "http://www.a-affordableinsurance.com/"
-  PhotoContest::Application.config.header_flash_asset_path  = "/videos/AA/affirmative_flash_aa.swf"
+  PhotoContest::Application.config.header_flash_asset_path  = "videos/AA/affirmative_flash_aa.swf"
   PhotoContest::Application.config.header_offerbox_asset_path  = "AA/offerbox.png"
   PhotoContest::Application.config.logo_asset_path  = "AA/aalogo.png"
   
