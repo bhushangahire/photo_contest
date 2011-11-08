@@ -1,0 +1,56 @@
+Initial Setup
+1.1  Requested the Apache Passenger / Rails setup from hosting company.  See appendix (ToDO CLIP EMAIL)
+1.1  Also installed imagemagick and git source control packages
+
+2. Made directory /var/www/splash_page
+2. Renamed splashpage.html to index.html and transfered that page and its files
+
+3.  made this change to /etc/apache2/sites-enabled/default
+# SRaden 5-Nov-2011 change the site root to the splash_page directory                            
+#DocumentRoot/var/www                                                                           
+DocumentRoot /var/www/splash_page
+
+and restarted apache
+> apache2ctl restart
+
+4.  Created a directory structure for the rails applications
+/var/www/contests
+/var/www/contests/AAfordable
+/var/www/contests/DriversChoice
+/var/www/contests/InsureOne
+/var/www/contests/USAgencies
+
+5.  Git wasn't working so I compressed and uploaded the app directory and
+then extract it to the above contest directories
+
+/var/www/contests/AAfordable/photo_contest and so forth
+
+6.  MySQL Data Defintions
+create database photocontest_AA_production;
+create database photocontest_DC_production;
+create database photocontest_IO_production;
+create database photocontest_US_production;
+
+create user 'pcontest_user'@'localhost' identified by 'NishowOz1';
+
+grant all on photocontest_AA_production.* to 'pcontest_user'@'localhost';
+grant all on photocontest_DC_production.* to 'pcontest_user'@'localhost';
+grant all on photocontest_IO_production.* to 'pcontest_user'@'localhost';
+grant all on photocontest_US_production.* to 'pcontest_user'@'localhost';
+
+7 Made this change  to $RAILS_ROOT/config/database.yml for each app
+
+production:
+  adapter: mysql
+  encoding:. utf8
+  reconnect: false
+  database: photocontest_AA_production
+  pool: 5
+  username: pcontest_user
+  password: NishowOz1
+  socket: /var/run/mysqld/mysqld.sock
+ 
+$RAILS_ROOT/config/intializers/brand_parameters.rb 
+PhotoContest::Application.config.brand_name = "AA"
+
+sudo cat /var/log/apache2/error.log | grep AAfordable
