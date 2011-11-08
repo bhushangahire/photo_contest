@@ -22,7 +22,7 @@ elsif PhotoContest::Application.config.brand_name == "IO"
   PhotoContest::Application.config.logo_asset_path  = "IO/iologo.png"
   
 elsif PhotoContest::Application.config.brand_name == "DC"
-  PhotoContest::Application.config.brand_name = "Driver's Choice"
+  PhotoContest::Application.config.brand_name = "DriversChoice"
   PhotoContest::Application.config.brand_dir = "DC"
   PhotoContest::Application.config.brand_url  = "http://www.driverschoiceinsurance.com/"
   PhotoContest::Application.config.header_flash_asset_path  = "/videos/DC/affirmative_flash_dc.swf"
