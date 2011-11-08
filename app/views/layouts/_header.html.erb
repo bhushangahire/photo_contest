@@ -1,5 +1,5 @@
 <div id="header" >      
-    <% path_to_flash = PhotoContest::Application.config.header_flash_asset_path %>
+    <% path_to_flash = path_to_video(PhotoContest::Application.config.header_flash_asset_path) %>        
     <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1024" height="400">          
       <param name="movie" value="<%= path_to_flash %>" />
       <param name="quality" value="high" />

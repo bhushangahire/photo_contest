@@ -36,14 +36,11 @@ describe ContestantEntry do
     end
 
     it "Contestant should not be able to create four entries" do   
-      contestant_entry = @contestant.contestant_entries.create!(@entry_attr)      
-      debugger
+      contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
       contestant_entry.should be_valid
       contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
-      debugger
       contestant_entry.should be_valid      
       contestant_entry = @contestant.contestant_entries.create!(@entry_attr)
-      debugger
       contestant_entry.should be_valid
       contestant_entry = @contestant.contestant_entries.build(@entry_attr)
       contestant_entry.should_not be_valid
