@@ -47,10 +47,29 @@ production:
   database: photocontest_AA_production
   pool: 5
   username: pcontest_user
-  password: NishowOz1
+  password: password
   socket: /var/run/mysqld/mysqld.sock
  
 $RAILS_ROOT/config/intializers/brand_parameters.rb 
 PhotoContest::Application.config.brand_name = "AA"
 
 sudo cat /var/log/apache2/error.log | grep AAfordable
+
+
+QA databases 
+mysql> create database photocontest_AA_QA;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create database photocontest_US_QA;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create database photocontest_IO_QA;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create database photocontest_US_QA;
+
+
+grant all on photocontest_AA_QA.* to 'pcontest_user'@'localhost';
+grant all on photocontest_DC_QA.* to 'pcontest_user'@'localhost';
+grant all on photocontest_IO_QA.* to 'pcontest_user'@'localhost';
+grant all on photocontest_US_QA.* to 'pcontest_user'@'localhost';

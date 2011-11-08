@@ -3,12 +3,11 @@ PhotoContest::Application.routes.draw do
 
   get "contestants/new"
 
-    resources :contestants          #,   :only => [:new, :create, :update, :show]
-    resources :contestant_entries   #,  :only => [:index, :update]
+    resources :contestants         
+    resources :contestant_entries  
     
     match '/enter',   :to =>   'contestants#new'    
-    match '/rules',   :to =>   'pages#rules'
-    match '/admin/gallery',   :to =>   'contestant_entries#index'
+    match '/rules',   :to =>   'pages#rules'    
     root :to => 'pages#home' 
 
 end

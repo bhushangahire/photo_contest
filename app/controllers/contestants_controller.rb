@@ -1,14 +1,14 @@
 class ContestantsController < ApplicationController
 
   def new    
-    @title = "Picture this Calendar contest - Enter"
+    @title = "PICTURE THIS! Calendar Contest"
     @contestant = Contestant.new
     @contestant_entry = ContestantEntry.new 
   end
   
   def show
      @contestant = Contestant.find(params[:id])
-     @title = "Picture this Calendar contest - Enter"
+     @title = "PICTURE THIS! Calendar Contest"
      if flash[:notice] = "Success"
        @success = true
      end
@@ -21,7 +21,7 @@ class ContestantsController < ApplicationController
       flash[:now]= "Success"      
       redirect_to @contestant
    else
-    @title = "Picture this Calendar contest - Enter" 
+    @title = "PICTURE THIS! Calendar Contest" 
     render 'new'
    end
   end
@@ -33,7 +33,7 @@ class ContestantsController < ApplicationController
       flash[:now] = "Success"      
       redirect_to @contestant
    else
-    @title = "Picture this Calendar contest - Enter"
+    @title = "PICTURE THIS! Calendar Contest"
     render 'new'
    end
   end
