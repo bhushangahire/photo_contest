@@ -10,9 +10,13 @@ class ContestantEntry < ActiveRecord::Base
   validate :limit_to_three_entries , :on => :create
   
   validates_attachment_presence :photo, :message => "You must attach a photo."                    
-#  #problematic
-#  validates_attachment_size  :photo,:less_than=>20.megabyte,:greater_than=>1.megabyte,:message => "Photo size must be between 1 and 20 Megabytes",:allow_nil => true
-  validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
+
+  # #problematic call, handling in a custom method
+  #  validates_attachment_size  :photo,:less_than=>20.megabyte,:greater_than=>1.megabyte,:message => "Photo size must be between 1 and 20 Megabytes",:allow_nil => true
+  
+  #image/pjpeg is for IE compatality
+  
+  validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/tiff', 'image/pjpeg']   
   validate :size_acceptable, :on => :create
   validates :agreed_to_rules, :presence     => true  
   validates :first_name, :presence => true
