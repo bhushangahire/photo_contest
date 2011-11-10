@@ -22,7 +22,7 @@ class ContestantEntry < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name, :presence => true      
   validates :address, :presence => true
-  validates :address2, :presence => true 
+  
   validates :city, :presence => true
   validates :state, :presence => true
   validates :zip, :presence => true, :numericality => true, :length => { :is => 5 }

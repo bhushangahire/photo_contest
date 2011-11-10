@@ -7,7 +7,7 @@ if PhotoContest::Application.config.brand_name == "AA"
 #A-Affordable
   PhotoContest::Application.config.brand_name = "A-Affordable"
   PhotoContest::Application.config.brand_dir = "AA"
-  PhotoContest::Application.config.brand_url  = "http://www.a-affordableinsurance.com/"
+  PhotoContest::Application.config.brand_url  = "http://www.aaffordableauto.com/"
   PhotoContest::Application.config.header_flash_asset_path  = "AA/affirmative_flash_aa.swf"
   PhotoContest::Application.config.header_offerbox_asset_path  = "AA/offerbox.png"
   PhotoContest::Application.config.logo_asset_path  = "AA/aalogo.png"

@@ -8,7 +8,7 @@
       <div id="main">        
         <section>
           <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, :class => "flash #{key}") unless value ="Success" %>
+            <%= content_tag(:div, value, :class => "flash #{key}") unless value == "Success" %>
           <% end %>
           
           <%= yield %>
