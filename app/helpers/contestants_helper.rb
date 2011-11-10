@@ -4,7 +4,7 @@ module ContestantsHelper
 
     random_number = (1 + rand(100000)).to_s
 
-    brand = PhotoContest::Application.config.brand_name   
+    brand = PhotoContest::Application.config.brand_dir  
    
     if brand == "IO"
       #Afirmative InsureOne Conversions - Pixel
