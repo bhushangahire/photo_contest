@@ -88,6 +88,7 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     polyglot (0.3.2)
+    possessive (1.0.0)
     rack (1.3.5)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -185,6 +186,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paperclip
+  possessive
   rack-ssl
   rails (= 3.1.1)
   rspec-rails

@@ -7,6 +7,7 @@ gem 'mysql2'
 gem 'will_paginate'
 gem 'devise'
 gem 'rack-ssl'
+gem 'possessive'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

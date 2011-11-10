@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+doc/*.txt
 app/assests/images/*.*
 spec/fixtures/images/*.*
 public/system/photos

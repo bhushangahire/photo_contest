@@ -1,7 +1,7 @@
  
 #change this configuration element to change the brand
 PhotoContest::Application.config.brand_dir  = "AA"
-# not this is an initalizer, rails app restart is required to reflect changes
+# note this is an initalizer, rails app restart is required to reflect changes
 
 if PhotoContest::Application.config.brand_dir  == "AA"
 #A-Affordable
