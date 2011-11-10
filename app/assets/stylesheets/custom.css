@@ -261,7 +261,7 @@ label.rating_form_lab{
 
 span.error_field {
   text-align:  justify;
-  display:compact;
+  display:inline;
   clear: none;
   color: red;
   font-size: 50%;  
