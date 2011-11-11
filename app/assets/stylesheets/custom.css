@@ -1,130 +1,23 @@
-/*.container {
- 
-}
-
-body {
- background: #fff9f3;
-  font-family: arial, sans-serif;
-}
-
-
-header {
-  width: 100%;
-  padding-top: 20px;
-}
-
--- Nav Bar
-
-nav {
-  width: 100%;
-  float: left;
-}
-
-nav {
-  
-  background-color: #9d1616;
-  padding: 0 0.7em;
-  white-space: nowrap;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
-}
-
-nav ul li a {
-  color: white;
-  padding: 0 5px;
-  font-weight: bold;
-}
-
-
-h1, h2 {
-  color:   #9d1616
-}
-
-h3.step {
-  padding-top: 10px;
-  clear: both;
-  color:  #dec19e 
-}
-
-section {
-  margin-top: 1em;
-  font-size: 120%;
-  padding: 20px; 
-}
-
-section h1 {
-  font-size: 200%;
-}
-
-footer {
-  text-align: center;
-  margin-top: 10px;
-  width: 710px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #d0a16d;  
-}
-
-
-
-div.field, div.actions {
-  margin-bottom: 10px;
-  display: block;  
-  clear: left;      
-}
-
-div.field label {
-  color:#a7a7a7;
-  text-align: right;
-  padding-right: 20px;
-  float: left;
-  display: block;
-  width: 200px;
-  clear: none;
-}
-
-
-div.field text {
-  width: 200px;
-  float: left;
-  display: block;
-  
-}
-
-div#rules  {
-  margin-top:  20px;
-  padding-top: 10px;
-}
-
-select {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;  
-}
-
+/*
 .field_with_errors label {
-  color: #fff;
+  color: black;
+}*/
+
+.field_with_errors { 
+  float: right;
+  clear: none; 
+  display : inline;  
+  padding-right: 150px;
+  margin: 0;
+  color: #c00;  
 }
 
-.field_with_errors {  
-  background-color: red;  
-}
 
-*/
 
 
 #error_explanation {
   width: 400px;
-  border: 2px solid red;
+  border: 2px solid #c00;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;

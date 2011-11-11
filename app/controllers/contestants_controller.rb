@@ -22,17 +22,17 @@ class ContestantsController < ApplicationController
       ContestantMailer.thank_you_email(@contestant).deliver       
       redirect_to @contestant
    else
-    debugger
+    ##debugger
     @title = "PICTURE THIS! Calendar Contest" 
     render 'new'
    end
   end
   
   def update    
-   debugger
+   ##debugger
    @contestant = get_customer_by_email_param
    @contestant_entry =  @contestant.contestant_entries.build(params[:contestant_entry])
-   debugger 
+   ##debugger 
    if @contestant.save
     ContestantMailer.thank_you_email(@contestant).deliver 
     flash[:now] = "Success"      
