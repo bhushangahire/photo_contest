@@ -1,0 +1,14 @@
+<div id="nav">
+    <ul>
+      <li><span class="navspace"><%= link_to "Home", home_path %></span></li>|
+      <li><span class="navspace"><%= link_to "Gallery", contestant_entries_path %></span></li>|            
+      <li><span class="navspace"><%= link_to "Stats", stats_path %></span></li>|
+      <li><span class="navspace"><%= link_to "Top Ten", top_ten_path %></span></li>|
+      <li><span class="navspace">              
+        <% if user_signed_in? %>  
+          <%= link_to('Logout', destroy_user_session_path, :method=> :delete) %> 
+        <% else %>
+          <%= link_to('Login', new_user_session_path)  %> 
+        <% end %></span>             
+      </li>
+ </div>

@@ -20,7 +20,11 @@ module ApplicationHelper
       return ""
     end    
   end
-  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+  def get_month_name(month_number)
+    return Date::MONTHNAMES[month_number]
+  end
+
   def custom_errors_flag(contestant)
     custom_messages = Hash.new
     # if there were errors on the entry

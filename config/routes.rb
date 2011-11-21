@@ -3,9 +3,14 @@ PhotoContest::Application.routes.draw do
 
     get "contestants/new"
 
+    match 'contestant_entries/top_ten', :to =>  "contestant_entries#top_ten" , :as => :top_ten
+    match 'contestant_entries/stats', :to =>  "contestant_entries#stats" , :as => :stats
+
     resources :contestants         
     resources :contestant_entries  
     
+    
+
     match '/enter',   :to =>   'contestants#new'    
     match '/rules',   :to =>   'pages#rules'
     match 'home',  :to =>  'pages#home'   

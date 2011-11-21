@@ -1,0 +1,28 @@
+<h1>Top Ten For Each Month</h1>
+<br />
+<% @ratings_by_month.keys.each do |key| %> 
+  <%# month was supplied then the key is in 1..12 %> 
+  <% if key == 13 %>
+    <h2>Month not specfied</h2>
+  <% else %>
+    <h2 class="entersubhead"><%= get_month_name(key) %></h2>
+  <% end %>  
+    <% @ratings_by_month[key].any? do  %>
+    <ul class="top_ten_list">
+      <% @ratings_by_month[key].each do |entry| %>        
+      <li class="top_ten_item">
+          <span>   
+            <%= image_tag entry.photo.url(:thumb) %>
+            <p>Rating: <%= entry.rating %></p>
+            <p>Contestant: <%= entry.contestant.email %></p>
+            <p>
+              <%= link_to "Details", contestant_entry_path(entry),  :class=>"details_link" %>
+            </p>
+          </span>
+      </li>
+      <br />    
+    <% end %>   <%# inner loop of rated entries %>
+    </ul>
+    <br />
+  <% end %>     <%# test of whether month had ratings %>
+<% end  %>      <%# outer loop of months %>

@@ -163,3 +163,29 @@ span.error_field {
 span.medium_label {
   font-size: 95%;  
 }
+
+ul.top_ten_list { 
+  clear: both;
+  margin:0;
+	list-style:none;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 1em;
+	padding-left: 0;
+}
+   
+li.top_ten_item {  
+  list-style-type: none;
+	/*display:inline;*/
+	margin:0;
+	padding-top:0;
+	padding-right: 0;
+	padding-bottom: 1em;
+	padding-left: 0;
+}
+
+
+li.top_ten_item span{
+  display:inline;
+}
+

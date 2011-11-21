@@ -13,6 +13,32 @@ class ContestantEntry < ActiveRecord::Base
 
   # #problematic call, handling in a custom method
   #  validates_attachment_size  :photo,:less_than=>20.megabyte,:greater_than=>1.megabyte,:message => "Photo size must be between 1 and 20 Megabytes",:allow_nil => true
+
+
+
+   def self.stats
+    begin
+ 
+      stats = Hash.new
+      # Total Submissions  -- total = select count(*) from contestant_entries 
+      total_entries = ContestantEntry.connection.select_one("SELECT count(*) as total_entries 
+                                                               FROM contestant_entries")
+ 
+      stats = stats.merge(total_entries)
+ 
+
+      total_rated =  ContestantEntry.connection.select_one("SELECT count(*) as total_rated
+                                                              FROM contestant_entries 
+                                                              WHERE rating is not null")
+ 
+      stats = stats.merge(total_rated)
+      
+      total_unrated = total_entries["total_entries"]- total_rated["total_rated"]
+      stats["total_unrated"] = total_unrated
+ 
+      return stats
+    end    
+  end 
   
   #image/pjpeg is for IE compatality
   

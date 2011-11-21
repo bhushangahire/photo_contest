@@ -4,19 +4,7 @@
   <body>
     <div id="wrap">
        <%= render 'layouts/header' %>
-      <div id="nav">
-          <ul>
-            <li><span class="navspace"><%= link_to "Home", home_path %></span></li>            
-            <li><span class="navspace"><%= link_to "Rules", rules_path %></span></li>
-            <li><span class="navspace"><%= link_to "Enter", enter_path %></span></li>
-            <li><span class="navspace">              
-              <% if user_signed_in? %>  
-                <%= link_to('Logout', destroy_user_session_path, :method=> :delete) %> 
-              <% else %>
-                <%= link_to('Login', new_user_session_path)  %> 
-              <% end %></span>             
-            </li>
-        </div>
+       <%= render 'layouts/admin_nav' %>
       <div id="main_gallery"> 
         <section>
           <% flash.each do |key, value| %>
