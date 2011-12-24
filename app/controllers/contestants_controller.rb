@@ -1,9 +1,13 @@
 class ContestantsController < ApplicationController
 
   def new    
-    @title = "PICTURE THIS! Calendar Contest"
-    @contestant = Contestant.new
-    @contestant_entry = ContestantEntry.new 
+
+    #original
+    #@title = "PICTURE THIS! Calendar Contest"
+    #@contestant = Contestant.new
+    #@contestant_entry = ContestantEntry.new 
+    #contest redirection
+    render :template => 'pages/enter'
   end
   
   def show
